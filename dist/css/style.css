@@ -574,23 +574,12 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
 
-.footer__item:first-child {
-  max-width: 360px;
-}
-
 .footer__item:last-child .footer__title {
   display: block;
-}
-
-.footer__item:last-child .footer__title:not(:last-child) {
-  margin-bottom: 60px;
 }
 
 .footer__item a {
@@ -604,7 +593,6 @@ body {
 
 .footer__title {
   font-family: "Korolev";
-  font-size: 24px;
   font-weight: bold;
   line-height: 1.2;
   letter-spacing: 1.92px;
@@ -625,7 +613,6 @@ body {
   background-color: #a7d3ce;
   width: 100%;
   height: 48px;
-  margin-bottom: 70px;
   padding: 15px;
 }
 
@@ -827,20 +814,6 @@ body {
 .posts {
   background-color: #f9f7f2;
   padding: 80px 0px;
-  position: relative;
-}
-
-.posts::after {
-  content: "";
-  background-color: #f9f7f2;
-  opacity: 0.5;
-  display: block;
-  height: 100%;
-  width: calc((100vw - 1150px) / 2);
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: none;
 }
 
 .posts__top {
@@ -893,6 +866,13 @@ body {
           transform: rotateY(180deg);
 }
 
+.posts__arrows button path,
+.posts__arrows button line {
+  -webkit-transition: stroke 0.3s ease-in-out;
+  -o-transition: stroke 0.3s ease-in-out;
+  transition: stroke 0.3s ease-in-out;
+}
+
 .posts__link-view {
   color: #24646D;
   display: -webkit-box;
@@ -908,13 +888,9 @@ body {
 }
 
 .cards-posts {
-  width: calc(100vw - (100vw - 1130px) / 2);
+  width: calc(1150px + (100vw - 1170px) / 2);
   margin-left: auto;
   margin-top: 50px;
-}
-
-.cards-posts__item {
-  max-width: 360px;
 }
 
 .cards-posts__image img {
@@ -929,7 +905,6 @@ body {
 
 .cards-posts__title {
   font-family: "Korolev";
-  font-size: 24px;
   font-weight: bold;
   line-height: 1.17;
   letter-spacing: 1.92px;
@@ -1082,6 +1057,10 @@ body {
             justify-content: center;
   }
 
+  .footer__title {
+    font-size: 24px;
+  }
+
   .first-screen__label::after {
     display: block;
   }
@@ -1105,11 +1084,31 @@ body {
   .travel .inner-section__title {
     margin-bottom: 20px;
   }
+
+  .cards-posts__item {
+    max-width: 360px;
+  }
+
+  .cards-posts__title {
+    font-size: 24px;
+  }
 }
 
 @media (min-width: 47.99875em) {
   .header-mob__search {
     display: none;
+  }
+
+  .footer__item:first-child {
+    max-width: 360px;
+  }
+
+  .footer__item:last-child .footer__title:not(:last-child) {
+    margin-bottom: 60px;
+  }
+
+  .footer__enter-field {
+    margin-bottom: 70px;
   }
 
   .no-webp .first-screen {
@@ -1308,6 +1307,11 @@ body {
     margin-right: 30px;
   }
 
+  .posts__arrows button:hover path,
+  .posts__arrows button:hover line {
+    stroke: #f64f39;
+  }
+
   .menu-accordion__title:hover {
     color: #d69956;
   }
@@ -1317,11 +1321,46 @@ body {
   }
 }
 
+@media (min-width: 441px) {
+  .footer__wrap {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media (max-width: 440px) {
+  .footer__wrap {
+    padding-bottom: 60px;
+  }
+
+  .footer__item {
+    width: 100%;
+  }
+
+  .footer__item:last-child {
+    margin-top: 15px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto auto;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+  }
+
+  .footer__item:last-child .footer__title {
+    margin-bottom: 0;
+  }
+}
+
 @media (max-width: 73.125em) {
   .search-header {
     -webkit-box-flex: 0;
         -ms-flex: 0 1 380px;
             flex: 0 1 380px;
+  }
+
+  .cards-posts {
+    width: calc(100% - 20px);
   }
 }
 
@@ -1404,6 +1443,11 @@ body {
     padding: 50px 0px;
   }
 
+  .posts__title::after {
+    width: 55px;
+    right: -25px;
+  }
+
   .accordion {
     padding: 50px 0px;
   }
@@ -1416,6 +1460,26 @@ body {
 @media (max-width: 47.99875em) {
   [class*=__container] {
     padding: 0px 25px;
+  }
+
+  .footer__wrap {
+    max-width: 500px;
+    padding-bottom: 50px;
+    position: relative;
+  }
+
+  .footer__item:first-child {
+    margin-bottom: 40px;
+  }
+
+  .footer__company-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  .footer__phone {
+    margin-top: 15px;
   }
 
   .first-screen {
@@ -1467,6 +1531,21 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
+  }
+
+  .posts {
+    padding: 50px 0 100px 0;
+    position: relative;
+  }
+
+  .posts__title::after {
+    display: none;
+  }
+
+  .posts__link-view {
+    position: absolute;
+    right: 25px;
+    bottom: 30px;
   }
 
   .accordion {
@@ -1527,6 +1606,11 @@ body {
     height: 15px;
   }
 
+  .icon-arrow-slider {
+    width: 26px;
+    height: 18px;
+  }
+
   .header__logo svg {
     width: 105.3px;
     height: 24px;
@@ -1534,6 +1618,39 @@ body {
 
   .actions-header {
     display: none;
+  }
+
+  .footer {
+    padding: 30px 0px;
+  }
+
+  .footer__item:first-child {
+    margin-bottom: 25px;
+  }
+
+  .footer__item a {
+    line-height: 1.4;
+  }
+
+  .footer__title:first-child {
+    margin-bottom: 10px;
+  }
+
+  .footer__text {
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.8px;
+    margin-bottom: 15px;
+  }
+
+  .footer__address {
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.8px;
+  }
+
+  .footer__phone {
+    margin-top: 5px;
   }
 
   .first-screen__container {
@@ -1582,6 +1699,41 @@ body {
     letter-spacing: 0.8px;
   }
 
+  .posts {
+    padding: 30px 0 60px 0;
+  }
+
+  .posts__arrows {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 70px;
+            flex: 0 1 70px;
+  }
+
+  .posts__link-view {
+    bottom: 20px;
+  }
+
+  .cards-posts {
+    width: calc(100% - 50px);
+    margin-right: auto;
+    margin-top: 20px;
+  }
+
+  .cards-posts__info {
+    padding: 15px 15px 20px 15px;
+  }
+
+  .cards-posts__text {
+    line-height: 1.2;
+    letter-spacing: 0.8px;
+  }
+
+  .cards-posts__bottom {
+    line-height: 1.4;
+    margin-top: 15px;
+    padding-top: 10px;
+  }
+
   .accordion {
     padding: 30px 0 60px 0;
   }
@@ -1596,6 +1748,12 @@ body {
 
   .menu-accordion__title {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 47.99875em) and (min-width: 441px) {
+  .footer__item:last-child .footer__title:not(:last-child) {
+    margin-bottom: 30px;
   }
 }
 
