@@ -1,0 +1,9 @@
+package-lock.json
+package.json
+version.json
+config/
+node_modules/
+src/
+gulpfile.js
+**/*.zip
+**/*.rar
