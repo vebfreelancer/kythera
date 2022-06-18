@@ -5,7 +5,7 @@
 	<title>Home</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20220618020355">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220618182324">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,7 +61,7 @@
 							</svg>
 						</a>
 						<div class="header__actions actions-header">
-							<ul class="actions-header__lang">
+							<ul class="actions-header__lang lang-menu">
 								<li class="actions-header__lang-item active">EN</li>
 								<li class="actions-header__lang-item">GR</li>
 							</ul>
@@ -97,19 +97,15 @@
 							</ul>
 						</div>
 						<div class="header__actions-mob header-mob">
-							<div class="header-mob__search">
-								<svg xmlns="http://www.w3.org/2000/svg" width="23.945" height="24" viewBox="0 0 23.945 24">
-									<path id="Path_37" data-name="Path 37" d="M939.025,93.672a10.309,10.309,0,0,0,12.82,1.425l4.651,4.662a.823.823,0,0,0,1.163,0l2.045-2.05a.828.828,0,0,0,0-1.166l-4.651-4.662a10.335,10.335,0,1,0-16.028,1.791Zm2.8-11.831a6.372,6.372,0,1,1,0,9.021A6.354,6.354,0,0,1,941.828,81.841Z" transform="translate(-936 -76)" fill="#24646d" />
+							<div class="header-mob__search" id="open-search">
+								<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="23.945" height="24" viewBox="0 0 23.945 24">
+									<path id="Path_37" data-name="Path 37" d="M939.025,93.672a10.309,10.309,0,0,0,12.82,1.425l4.651,4.662a.823.823,0,0,0,1.163,0l2.045-2.05a.828.828,0,0,0,0-1.166l-4.651-4.662a10.335,10.335,0,1,0-16.028,1.791Zm2.8-11.831a6.372,6.372,0,1,1,0,9.021A6.354,6.354,0,0,1,941.828,81.841Z" transform="translate(-936 -76)" />
 								</svg>
 							</div>
-							<div class="header-mob__menu icon-menu">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20">
-									<g id="Group_199" data-name="Group 199" transform="translate(-328 -18)">
-										<rect id="Rectangle_74" data-name="Rectangle 74" width="24" height="4" transform="translate(328 18)" fill="#24646d" />
-										<rect id="Rectangle_75" data-name="Rectangle 75" width="24" height="4" transform="translate(328 26)" fill="#24646d" />
-										<rect id="Rectangle_76" data-name="Rectangle 76" width="24" height="4" transform="translate(328 34)" fill="#24646d" />
-									</g>
-								</svg>
+							<div class="header-mob__menu icon-menu" id="open-menu">
+								<span></span>
+								<span></span>
+								<span></span>
 							</div>
 						</div>
 					</div>
@@ -135,7 +131,7 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button _spoller-active" data-spoller>
 								<span>Discover</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1655507035264" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1655565804539" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -170,7 +166,7 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button" data-spoller>
 								<span>Connect</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1655507035264" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1655565804539" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -205,7 +201,7 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button" data-spoller>
 								<span>Visit</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1655507035264" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1655565804539" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -240,10 +236,10 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button" data-spoller>
 								<span class="nav-accordion__login">
-									<img src="img/icons/user-mob.svg?_v=1655507035264" alt="">
+									<img src="img/icons/user-mob.svg?_v=1655565804539" alt="">
 									Account
 								</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1655507035264" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1655565804539" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -252,8 +248,12 @@
 							</ul>
 						</div>
 					</div>
+					<ul class="lang-mob-menu lang-menu">
+						<li class="lang-mob-menu__item active">English</li>
+						<li class="lang-mob-menu__item">Greek</li>
+					</ul>
 				</nav>
-				<form action="#" class="header__search search-header">
+				<form action="#" class="header__search search-header" data-da=".mob-search,767.8,0">
 					<button type="submit" class="search-header__icon">
 						<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="23.945" height="24" viewBox="0 0 23.945 24">
 							<path id="Path_37" data-name="Path 37" d="M939.025,93.672a10.309,10.309,0,0,0,12.82,1.425l4.651,4.662a.823.823,0,0,0,1.163,0l2.045-2.05a.828.828,0,0,0,0-1.166l-4.651-4.662a10.335,10.335,0,1,0-16.028,1.791Zm2.8-11.831a6.372,6.372,0,1,1,0,9.021A6.354,6.354,0,0,1,941.828,81.841Z" transform="translate(-936 -76)" />
@@ -264,11 +264,12 @@
 					</div>
 				</form>
 			</div>
+			<div class="mob-search"></div>
 		</header>
 		<main class="page">
 			<section class="first-screen">
 				<div class="main-sreen-mobile">
-					<picture><source srcset="img/main-screen-mob-bg.webp" type="image/webp"><img src="img/main-screen-mob-bg.jpg?_v=1655507035264" alt=""></picture>
+					<picture><source srcset="img/main-screen-mob-bg.webp" type="image/webp"><img src="img/main-screen-mob-bg.jpg?_v=1655565804539" alt=""></picture>
 				</div>
 				<div class="first-screen__container">
 					<div class="first-screen__content">
@@ -282,18 +283,18 @@
 						<a href="#" class="first-screen__family-btn btn btn-two-color">
 							Search Family Records
 							<svg class="icon-arrow-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.826 17.386">
-								<g id="Group_12" data-name="Group 12" transform="translate(-833.866 0.693)">
-									<path id="Path_39" data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-									<line id="Line_2" data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+								<g data-name="Group 12" transform="translate(-833.866 0.693)">
+									<path data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+									<line data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
 								</g>
 							</svg>
 						</a>
 						<a href="#" class="first-screen__upload-btn btn btn-one-color">
 							Upload Your Entry
 							<svg class="icon-arrow-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.826 17.386">
-								<g id="Group_12" data-name="Group 12" transform="translate(-833.866 0.693)">
-									<path id="Path_39" data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-									<line id="Line_2" data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+								<g data-name="Group 12" transform="translate(-833.866 0.693)">
+									<path data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+									<line data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
 								</g>
 							</svg>
 						</a>
@@ -304,7 +305,7 @@
 				<div class="inner-section__container">
 					<div class="inner-section__wrap">
 						<div class="inner-section__image">
-							<picture><source srcset="img/history.webp" type="image/webp"><img src="img/history.jpg?_v=1655507035264" alt=""></picture>
+							<picture><source srcset="img/history.webp" type="image/webp"><img src="img/history.jpg?_v=1655565804539" alt=""></picture>
 						</div>
 						<div class="inner-section__info">
 							<div class="inner-section__label section-label">APHRODITE’S ISLAND</div>
@@ -315,9 +316,9 @@
 							<a href="#" class="inner-section__btn btn btn-accent-color">
 								Discover More History
 								<svg class="icon-arrow-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.826 17.386">
-									<g id="Group_12" data-name="Group 12" transform="translate(-833.866 0.693)">
-										<path id="Path_39" data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#f9f7f2" stroke-miterlimit="10" stroke-width="2" />
-										<line id="Line_2" data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#f9f7f2" stroke-miterlimit="10" stroke-width="2" />
+									<g data-name="Group 12" transform="translate(-833.866 0.693)">
+										<path data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#f9f7f2" stroke-miterlimit="10" stroke-width="2" />
+										<line data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#f9f7f2" stroke-miterlimit="10" stroke-width="2" />
 									</g>
 								</svg>
 							</a>
@@ -332,17 +333,17 @@
 						<div class="posts__arrows">
 							<button type="button" class="button-prev">
 								<svg class="icon-arrow-slider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.826 17.386">
-									<g id="Group_12" data-name="Group 12" transform="translate(-833.866 0.693)">
-										<path id="Path_39" data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#9B3A35" stroke-miterlimit="10" stroke-width="2" />
-										<line id="Line_2" data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#9B3A35" stroke-miterlimit="10" stroke-width="2" />
+									<g data-name="Group 12" transform="translate(-833.866 0.693)">
+										<path data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#9B3A35" stroke-miterlimit="10" stroke-width="2" />
+										<line data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#9B3A35" stroke-miterlimit="10" stroke-width="2" />
 									</g>
 								</svg>
 							</button>
 							<button type="button" class="button-next">
 								<svg class="icon-arrow-slider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.826 17.386">
-									<g id="Group_12" data-name="Group 12" transform="translate(-833.866 0.693)">
-										<path id="Path_39" data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#9B3A35" stroke-miterlimit="10" stroke-width="2" />
-										<line id="Line_2" data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#9B3A35" stroke-miterlimit="10" stroke-width="2" />
+									<g data-name="Group 12" transform="translate(-833.866 0.693)">
+										<path data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#9B3A35" stroke-miterlimit="10" stroke-width="2" />
+										<line data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#9B3A35" stroke-miterlimit="10" stroke-width="2" />
 									</g>
 								</svg>
 							</button>
@@ -350,11 +351,11 @@
 						<a href="#" class="posts__link-view view-link">
 							View All Posts
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.132 16.693">
-								<g id="Group_23" data-name="Group 23" transform="translate(-1292.865 -1328.645)">
-									<g id="Group_22" data-name="Group 22">
-										<path id="Path_40" data-name="Path 40" d="M1307.614,1328.991l7.691,8-7.691,8" fill="none" stroke="#24646d" stroke-miterlimit="10" stroke-width="1" />
+								<g data-name="Group 23" transform="translate(-1292.865 -1328.645)">
+									<g data-name="Group 22">
+										<path data-name="Path 40" d="M1307.614,1328.991l7.691,8-7.691,8" fill="none" stroke="#24646d" stroke-miterlimit="10" stroke-width="1" />
 									</g>
-									<line id="Line_3" data-name="Line 3" x1="21.613" transform="translate(1292.865 1336.991)" fill="none" stroke="#24646d" stroke-miterlimit="10" stroke-width="1" />
+									<line data-name="Line 3" x1="21.613" transform="translate(1292.865 1336.991)" fill="none" stroke="#24646d" stroke-miterlimit="10" stroke-width="1" />
 								</g>
 							</svg>
 						</a>
@@ -364,7 +365,7 @@
 					<div class="cards-posts__swiper">
 						<article class="cards-posts__item">
 							<div class="cards-posts__image">
-								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655507035264" alt=""></picture>
+								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655565804539" alt=""></picture>
 							</div>
 							<div class="cards-posts__info info-article-one">
 								<h4 class="cards-posts__title">
@@ -384,7 +385,7 @@
 						</article>
 						<article class="cards-posts__item">
 							<div class="cards-posts__image">
-								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655507035264" alt=""></picture>
+								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655565804539" alt=""></picture>
 							</div>
 							<div class="cards-posts__info info-article-two">
 								<h4 class="cards-posts__title">
@@ -404,7 +405,7 @@
 						</article>
 						<article class="cards-posts__item">
 							<div class="cards-posts__image">
-								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655507035264" alt=""></picture>
+								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655565804539" alt=""></picture>
 							</div>
 							<div class="cards-posts__info info-article-three">
 								<h4 class="cards-posts__title">
@@ -424,7 +425,7 @@
 						</article>
 						<article class="cards-posts__item">
 							<div class="cards-posts__image">
-								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655507035264" alt=""></picture>
+								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655565804539" alt=""></picture>
 							</div>
 							<div class="cards-posts__info info-article-one">
 								<h4 class="cards-posts__title">
@@ -444,7 +445,7 @@
 						</article>
 						<article class="cards-posts__item">
 							<div class="cards-posts__image">
-								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655507035264" alt=""></picture>
+								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655565804539" alt=""></picture>
 							</div>
 							<div class="cards-posts__info info-article-two">
 								<h4 class="cards-posts__title">
@@ -464,7 +465,7 @@
 						</article>
 						<article class="cards-posts__item">
 							<div class="cards-posts__image">
-								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655507035264" alt=""></picture>
+								<picture><source srcset="img/cards-img.webp" type="image/webp"><img src="img/cards-img.jpg?_v=1655565804539" alt=""></picture>
 							</div>
 							<div class="cards-posts__info info-article-three">
 								<h4 class="cards-posts__title">
@@ -489,7 +490,7 @@
 				<div class="inner-section__container">
 					<div class="inner-section__wrap">
 						<div class="inner-section__image">
-							<picture><source srcset="img/history.webp" type="image/webp"><img src="img/history.jpg?_v=1655507035264" alt=""></picture>
+							<picture><source srcset="img/history.webp" type="image/webp"><img src="img/history.jpg?_v=1655565804539" alt=""></picture>
 						</div>
 						<div class="inner-section__info">
 							<div class="inner-section__label section-label">Travel Tips</div>
@@ -500,9 +501,9 @@
 							<a href="#" class="inner-section__btn btn btn-three-color">
 								Start Planning
 								<svg class="icon-arrow-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.826 17.386">
-									<g id="Group_12" data-name="Group 12" transform="translate(-833.866 0.693)">
-										<path id="Path_39" data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
-										<line id="Line_2" data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+									<g data-name="Group 12" transform="translate(-833.866 0.693)">
+										<path data-name="Path 39" d="M848.614,724l7.69,8-7.69,8" transform="translate(0 -724)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+										<line data-name="Line 2" x1="21.613" transform="translate(833.866 8)" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
 									</g>
 								</svg>
 							</a>
@@ -517,11 +518,11 @@
 						<a href="#" class="accordion__link-view view-link">
 							View All Questions
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.132 16.693">
-								<g id="Group_23" data-name="Group 23" transform="translate(-1292.865 -1328.645)">
-									<g id="Group_22" data-name="Group 22">
-										<path id="Path_40" data-name="Path 40" d="M1307.614,1328.991l7.691,8-7.691,8" fill="none" stroke="#24646d" stroke-miterlimit="10" stroke-width="1" />
+								<g data-name="Group 23" transform="translate(-1292.865 -1328.645)">
+									<g data-name="Group 22">
+										<path data-name="Path 40" d="M1307.614,1328.991l7.691,8-7.691,8" fill="none" stroke="#24646d" stroke-miterlimit="10" stroke-width="1" />
 									</g>
-									<line id="Line_3" data-name="Line 3" x1="21.613" transform="translate(1292.865 1336.991)" fill="none" stroke="#24646d" stroke-miterlimit="10" stroke-width="1" />
+									<line data-name="Line 3" x1="21.613" transform="translate(1292.865 1336.991)" fill="none" stroke="#24646d" stroke-miterlimit="10" stroke-width="1" />
 								</g>
 							</svg>
 						</a>
@@ -583,7 +584,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20220618020355"></script>
+	<script src="js/app.min.js?_v=20220618182324"></script>
 </body>
 
 </html>
