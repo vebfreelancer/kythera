@@ -7,5 +7,6 @@
 - [Entry Page](https://vebfreelancer.github.io/kythera/dist/entry-page.html)
 - [Profile MAIN](https://vebfreelancer.github.io/kythera/dist/profile.html)
 - [Entry Preview](https://vebfreelancer.github.io/kythera/dist/entry-preview.html)
+- [About](https://vebfreelancer.github.io/kythera/dist/about.html)
 - [About FAQ](https://vebfreelancer.github.io/kythera/dist/about-faq.html)
 - [Advanced Search](https://vebfreelancer.github.io/kythera/dist/search.html)
