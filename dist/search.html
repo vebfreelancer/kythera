@@ -5,7 +5,7 @@
 	<title>Advanced - Search</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20220623023753">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220624160713">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +65,7 @@
 								<li class="actions-header__lang-item active">EN</li>
 								<li class="actions-header__lang-item">GR</li>
 							</ul>
-							<a href="#" class="actions-header__login">
+							<a href="#" class="actions-header__login" data-popup="#login-popup">
 								<span class="actions-header__user-icon">
 									<span class="actions-header__user-login"></span>
 									<span class="actions-header__user-logout"></span>
@@ -131,7 +131,7 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button _spoller-active" data-spoller>
 								<span>Discover</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1655941073034" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1656076033583" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -166,7 +166,7 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button" data-spoller>
 								<span>Connect</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1655941073034" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1656076033583" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -201,7 +201,7 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button" data-spoller>
 								<span>Visit</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1655941073034" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1656076033583" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -236,14 +236,14 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button" data-spoller>
 								<span class="nav-accordion__login">
-									<img src="img/icons/user-mob.svg?_v=1655941073034" alt="">
+									<img src="img/icons/user-mob.svg?_v=1656076033583" alt="">
 									Account
 								</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1655941073034" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1656076033583" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
-									<a href="#" class="nav-accordion__link">Ms. Aphrodite</a>
+									<a href="#" class="nav-accordion__link" data-popup="#login-popup">Ms. Aphrodite</a>
 								</li>
 							</ul>
 						</div>
@@ -362,9 +362,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="form-search__footer">
-						<button class="submit-form-btn" type="submit">Search</button>
-						<button type="reset">Clear Search Criteria</button>
+					<div class="form-search__footer form-buttons">
+						<button class="form-buttons__submit form-btn" type="submit">Search</button>
+						<button class="form-buttons__reset form-btn" type="reset">Clear Search Criteria</button>
 					</div>
 				</form>
 			</section>
@@ -397,7 +397,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20220623023753"></script>
+	<script src="js/app.min.js?_v=20220624160713"></script>
 </body>
 
 </html>
