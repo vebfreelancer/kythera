@@ -419,10 +419,11 @@ body {
 }
 
 .log-menu__login {
+  border: 3px solid transparent;
   background-color: #d69956;
-  -webkit-transition: color 0.3s ease-in-out;
-  -o-transition: color 0.3s ease-in-out;
-  transition: color 0.3s ease-in-out;
+  -webkit-transition: border-color, background-color, color, 0.3s ease-in-out;
+  -o-transition: border-color, background-color, color, 0.3s ease-in-out;
+  transition: border-color, background-color, color, 0.3s ease-in-out;
 }
 
 .log-menu__login span {
@@ -576,11 +577,6 @@ body {
   top: 25px;
   right: 25px;
   display: block;
-  background-color: transparent;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-image: url(../../img/icons/close.svg);
-  background-size: 100% 100%;
   border: none;
   font-size: 0;
   cursor: pointer;
@@ -1298,7 +1294,7 @@ THEMES:
 }
 
 .os-theme-light > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle {
-  background: rgba(255, 255, 255, 0.4);
+  background-color: #e8cfaa;
 }
 
 .os-theme-dark > .os-scrollbar:hover > .os-scrollbar-track > .os-scrollbar-handle {
@@ -3413,26 +3409,27 @@ input[name=conditions]:checked + .post-entry__label svg {
   background-color: #f5ead9;
   min-height: 105px;
   padding: 15px;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.8px;
-  color: #d69956;
   margin-bottom: 15px;
 }
 
-.drag-drop__field p {
+.drag-drop__placeholder {
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.2;
+  letter-spacing: 0.8px;
+  color: #d69956;
+  margin-bottom: 10px;
 }
 
-.drag-drop__item {
+.upload-files__item {
   color: #24646D;
 }
 
-.drag-drop__item:not(:last-child) {
+.upload-files__item:not(:last-child) {
   margin-bottom: 15px;
 }
 
-.drag-drop__item input {
+.upload-files__item input {
   width: 1px;
   height: 1px;
   position: absolute;
@@ -3440,7 +3437,7 @@ input[name=conditions]:checked + .post-entry__label svg {
   opacity: 0;
 }
 
-.drag-drop__item label {
+.upload-files__item label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3453,16 +3450,16 @@ input[name=conditions]:checked + .post-entry__label svg {
   transition: color, fill, 0.3s ease-in-out;
 }
 
-.drag-drop__item label svg {
+.upload-files__item label svg {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
 
-.drag-drop__marker {
+.upload-files__marker {
   margin-right: 15px;
 }
 
-.drag-drop__file-name {
+.upload-files__file-name {
   margin-left: 10px;
   white-space: nowrap;
   -o-text-overflow: ellipsis;
@@ -3470,7 +3467,7 @@ input[name=conditions]:checked + .post-entry__label svg {
   overflow: hidden;
 }
 
-.drag-drop__buttons {
+.upload-files__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3479,12 +3476,21 @@ input[name=conditions]:checked + .post-entry__label svg {
           align-items: center;
 }
 
-.drag-drop__buttons button {
+.upload-files__buttons button {
   color: #24646D;
 }
 
-.drag-drop__view {
+.upload-files__view {
   margin-right: 30px;
+  -webkit-transition: color 0.3s linear;
+  -o-transition: color 0.3s linear;
+  transition: color 0.3s linear;
+}
+
+.upload-files__delete {
+  -webkit-transition: color 0.3s linear;
+  -o-transition: color 0.3s linear;
+  transition: color 0.3s linear;
 }
 
 .entry-info__input {
@@ -3548,12 +3554,16 @@ input[name=conditions]:checked + .post-entry__label svg {
 
 .entry-text__field {
   background-color: #f5ead9;
-  padding: 15px;
+  padding: 15px 0px;
+}
+
+.entry-text__field .os-host-textarea {
+  height: 250px;
+  padding: 0 15px;
 }
 
 .entry-text__field textarea {
-  width: 100%;
-  height: 280px;
+  padding-right: 15px;
   resize: none;
   outline: none;
   font-size: 16px;
@@ -4161,14 +4171,16 @@ input[name=conditions]:checked + .post-entry__label svg {
   }
 
   .log-menu__login:hover {
-    color: #C9503F;
+    background-color: #f9f7f2;
+    border-color: #d69956;
+    color: #24646D;
   }
 
   .log-menu__forget:hover {
     color: #fff;
   }
 
-  .hystmodal--active .hystmodal__close:hover {
+  .hystmodal__close:hover {
     -webkit-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
             transform: rotate(180deg);
@@ -4353,7 +4365,15 @@ input[name=conditions]:checked + .post-entry__label svg {
     background-color: #e4ac6f;
   }
 
-  .drag-drop__item label:hover {
+  .upload-files__item label:hover {
+    color: #d69956;
+  }
+
+  .upload-files__view:hover {
+    color: #d69956;
+  }
+
+  .upload-files__delete:hover {
     color: #C9503F;
   }
 
@@ -4398,7 +4418,7 @@ input[name=conditions]:checked + .post-entry__label svg {
 }
 
 @media (min-width: 661px) {
-  .drag-drop__item {
+  .upload-files__item {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4438,7 +4458,7 @@ input[name=conditions]:checked + .post-entry__label svg {
 }
 
 @media (max-width: 660px) {
-  .drag-drop__buttons {
+  .upload-files__buttons {
     margin-top: 5px;
     padding-left: 65px;
   }
@@ -4932,7 +4952,7 @@ input[name=conditions]:checked + .post-entry__label svg {
     min-height: 160px;
   }
 
-  .drag-drop__buttons {
+  .upload-files__buttons {
     padding-left: 58px;
   }
 
@@ -5451,17 +5471,17 @@ input[name=conditions]:checked + .post-entry__label svg {
     margin: 20px 0 0 0;
   }
 
-  .drag-drop__item {
+  .upload-files__item {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.8px;
   }
 
-  .drag-drop__marker {
+  .upload-files__marker {
     margin-right: 10px;
   }
 
-  .entry-text__field textarea {
+  .entry-text__field .os-host-textarea {
     height: 200px;
   }
 
