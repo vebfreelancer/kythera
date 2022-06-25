@@ -421,9 +421,6 @@ body {
 .log-menu__login {
   border: 3px solid transparent;
   background-color: #d69956;
-  -webkit-transition: border-color, background-color, color, 0.3s ease-in-out;
-  -o-transition: border-color, background-color, color, 0.3s ease-in-out;
-  transition: border-color, background-color, color, 0.3s ease-in-out;
 }
 
 .log-menu__login span {
@@ -438,9 +435,6 @@ body {
   font-size: 16px;
   font-weight: 500;
   color: #71B5AF;
-  -webkit-transition: color 0.3s ease-in-out;
-  -o-transition: color 0.3s ease-in-out;
-  transition: color 0.3s ease-in-out;
 }
 
 .hystmodal__opened {
@@ -566,9 +560,15 @@ body {
 .hystmodal--active .hystmodal__close {
   -webkit-transition: color, 0.2s linear, -webkit-transform;
   transition: color, 0.2s linear, -webkit-transform;
-  -o-transition: transform, color, 0.2s linear;
-  transition: transform, color, 0.2s linear;
-  transition: transform, color, 0.2s linear, -webkit-transform;
+  -o-transition: color, transform, 0.2s linear;
+  transition: color, transform, 0.2s linear;
+  transition: color, transform, 0.2s linear, -webkit-transform;
+}
+
+.hystmodal--active .log-menu__buttons button {
+  -webkit-transition: border-color, background-color, color, 0.3s ease-in-out;
+  -o-transition: border-color, background-color, color, 0.3s ease-in-out;
+  transition: border-color, background-color, color, 0.3s ease-in-out;
 }
 
 .hystmodal__close {
@@ -577,10 +577,9 @@ body {
   top: 25px;
   right: 25px;
   display: block;
-  border: none;
-  font-size: 0;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
-  outline: none;
 }
 
 /*!
@@ -1398,7 +1397,6 @@ THEMES:
 
 .header__bottom {
   background-color: #A7D3CE;
-  padding-left: 20px;
 }
 
 .actions-header {
@@ -1680,8 +1678,8 @@ THEMES:
   height: 48px;
   padding: 12px 15px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 calc(380px + (100vw - 1170px) / 2);
-          flex: 0 1 calc(380px + (100vw - 1170px) / 2);
+      -ms-flex: 0 1 calc(380px + (100% - 1170px) / 2);
+          flex: 0 1 calc(380px + (100% - 1170px) / 2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
