@@ -1,9 +1,7 @@
-package-lock.json
-package.json
+src/fonts
+src/img
 version.json
 config/
 node_modules/
-src/
-gulpfile.js
 **/*.zip
 **/*.rar

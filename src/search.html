@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"Advanced - Search"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<section class="advanced-search page-search">
+                    <h3 class="advanced-search__title">Advanced Search</h3>
+                    <p class="advanced-search__text">
+                        The Advanced Search feature allows you to find specific entries based on your search criteria. Search via keywords, section criteria, main categories and up to two sub-categories. 
+                    </p>
+                    <form action="#" method="post" class="advanced-search__form form-search" id="advanced-search" autocomplete="off">
+                        <div class="form-search__row keywords-field">
+                            <textarea name="form-keywords" id="form-keywords" placeholder="Enter Keywords"></textarea>
+                        </div>
+                        <div class="form-search__row row-flex text-field">
+                            <input type="text" id="input-autor" placeholder="Author Name (Optional)">
+                            <input type="text" id="input-village" placeholder="Village Name (Optional)">
+                        </div>
+                        <div class="form-search__row row-flex selects-row">
+                            <div class="form-search__select select-form">
+                                <div class="select-form__field">
+                                    <input class="select-form__category" type="text" id="category" value="Select Category" readonly>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="4.16" height="8.616" viewBox="0 0 4.16 8.616">
+                                        <path data-name="Path 111" d="M1300.155,820.932l3.131,4-3.131,4" transform="translate(-1299.761 -820.623)" fill="none" stroke="#27646c" stroke-miterlimit="10" stroke-width="1"/>
+                                    </svg>
+                                </div>
+                                <ul class="select-form__list">
+                                    <li class="select-form__option">Category 1</li>
+                                    <li class="select-form__option">Category 2</li>
+                                    <li class="select-form__option">Category 3</li>
+                                </ul>
+                            </div>
+                            <div class="form-search__select select-form">
+                                <div class="select-form__field">
+                                    <input class="select-form__sub-category" type="text" id="sub-category-1" value="Select Subcategory" readonly>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="4.16" height="8.616" viewBox="0 0 4.16 8.616">
+                                        <path data-name="Path 111" d="M1300.155,820.932l3.131,4-3.131,4" transform="translate(-1299.761 -820.623)" fill="none" stroke="#27646c" stroke-miterlimit="10" stroke-width="1"/>
+                                    </svg>
+                                </div>
+                                <ul class="select-form__list">
+                                    <li class="select-form__option">Category 1</li>
+                                    <li class="select-form__option">Category 2</li>
+                                    <li class="select-form__option">Category 3</li>
+                                </ul>
+                            </div>
+                            <div class="form-search__select select-form">
+                                <div class="select-form__field">
+                                    <input class="select-form__sub-category" type="text" id="sub-category-2" value="Select Subcategory" readonly>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="4.16" height="8.616" viewBox="0 0 4.16 8.616">
+                                        <path data-name="Path 111" d="M1300.155,820.932l3.131,4-3.131,4" transform="translate(-1299.761 -820.623)" fill="none" stroke="#27646c" stroke-miterlimit="10" stroke-width="1"/>
+                                    </svg>
+                                </div>
+                                <ul class="select-form__list">
+                                    <li class="select-form__option">Category 1</li>
+                                    <li class="select-form__option">Category 2</li>
+                                    <li class="select-form__option">Category 3</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-search__row radio-btns">
+                            <div class="radio-btns__title">Select Search Fields</div>
+                            <div class="radio-btns__row row-flex">
+                                <div class="radio-btns__item">
+                                    <input type="radio" id="entries" value="entries" name="radio" checked>
+                                    <label for="entries" class="radio-btns__label">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                            <path data-name="Path 120" d="M1547.375,64.333a8,8,0,1,0,8,8A8,8,0,0,0,1547.375,64.333Zm.748,11.138L1546.8,76.79a.769.769,0,0,1-1.089,0l-1.318-1.319-2.7-2.7a.769.769,0,0,1,0-1.089l.774-.774a.769.769,0,0,1,1.089,0l2.151,2.152a.771.771,0,0,0,1.089,0l4.59-4.59a.769.769,0,0,1,1.089,0l.774.774a.769.769,0,0,1,0,1.089Z" transform="translate(-1539.375 -64.333)" fill="#a7d3ce"/>
+                                        </svg>
+                                        <span>Entries</span>
+                                    </label>
+                                </div>
+                                <div class="radio-btns__item">
+                                    <input type="radio" id="comments" value="comments" name="radio">
+                                    <label for="comments" class="radio-btns__label">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                            <path data-name="Path 120" d="M1547.375,64.333a8,8,0,1,0,8,8A8,8,0,0,0,1547.375,64.333Zm.748,11.138L1546.8,76.79a.769.769,0,0,1-1.089,0l-1.318-1.319-2.7-2.7a.769.769,0,0,1,0-1.089l.774-.774a.769.769,0,0,1,1.089,0l2.151,2.152a.771.771,0,0,0,1.089,0l4.59-4.59a.769.769,0,0,1,1.089,0l.774.774a.769.769,0,0,1,0,1.089Z" transform="translate(-1539.375 -64.333)" fill="#a7d3ce"/>
+                                        </svg>
+                                        <span>Comments</span>
+                                    </label>
+                                </div>
+                                <div class="radio-btns__item">
+                                    <input type="radio" id="family-trees" value="family-trees" name="radio">
+                                    <label for="family-trees" class="radio-btns__label">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                            <path data-name="Path 120" d="M1547.375,64.333a8,8,0,1,0,8,8A8,8,0,0,0,1547.375,64.333Zm.748,11.138L1546.8,76.79a.769.769,0,0,1-1.089,0l-1.318-1.319-2.7-2.7a.769.769,0,0,1,0-1.089l.774-.774a.769.769,0,0,1,1.089,0l2.151,2.152a.771.771,0,0,0,1.089,0l4.59-4.59a.769.769,0,0,1,1.089,0l.774.774a.769.769,0,0,1,0,1.089Z" transform="translate(-1539.375 -64.333)" fill="#a7d3ce"/>
+                                        </svg>
+                                        <span>Family Trees</span>
+                                    </label>
+                                </div>
+                                <div class="radio-btns__item">
+                                    <input type="radio" id="groups" value="groups" name="radio">
+                                    <label for="groups" class="radio-btns__label">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                            <path data-name="Path 120" d="M1547.375,64.333a8,8,0,1,0,8,8A8,8,0,0,0,1547.375,64.333Zm.748,11.138L1546.8,76.79a.769.769,0,0,1-1.089,0l-1.318-1.319-2.7-2.7a.769.769,0,0,1,0-1.089l.774-.774a.769.769,0,0,1,1.089,0l2.151,2.152a.771.771,0,0,0,1.089,0l4.59-4.59a.769.769,0,0,1,1.089,0l.774.774a.769.769,0,0,1,0,1.089Z" transform="translate(-1539.375 -64.333)" fill="#a7d3ce"/>
+                                        </svg>
+                                        <span>Groups</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-search__footer form-buttons">
+                            <button class="form-buttons__submit form-btn" type="submit">Search</button>
+                            <button class="form-buttons__reset form-btn" type="reset">Clear Search Criteria</button>
+                        </div>
+                    </form>
+                </section>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_popup.htm',{})
+		@@include('html/_js.htm',{})
+	</body>
+</html>

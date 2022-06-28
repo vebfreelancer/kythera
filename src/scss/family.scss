@@ -1,0 +1,90 @@
+.names {
+    padding-top: 30px;
+    @media (max-width: $mobileSmall) {
+        padding-top: 20px;
+    }
+    &__letters {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+        @media (max-width: $mobile) {
+            margin-bottom: 10px;
+        }
+        li {
+            width: calc(100% / 13);
+            padding: 10px 0px;
+            font-weight: bold;
+            line-height: 1.21;
+            letter-spacing: 1.92px;
+            color: #a7d3ce;
+            text-align: center;
+            cursor: pointer;
+            transition: color .3s ease-in-out;
+            @media (min-width: $tablet) {
+                &:hover {
+                    color: $hover;
+                }
+            }
+            @media (min-width: $mobile) {
+                font-size: 24px;
+            }
+            @media (max-width: $mobileSmall) {
+                width: calc(100% / 9);
+                font-size: 18px;
+                padding: 5px 0px;
+            }
+        }
+    }
+    &__wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 30px 25px;
+        @media (max-width: $mobile) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        @media (max-width: 580px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media (max-width: $mobileSmall) {
+            gap: 20px 15px;
+        }
+    }
+    &__column {
+    }
+}
+.column-names {
+    color: $accent-color;
+    &__top {
+        border-bottom: 1px solid $accent-color;
+        margin-bottom: 15px;
+    }
+    &__letter {
+        // font-family: 'NotoSerif';
+        font-size: 48px;
+        line-height: 1.13;
+        letter-spacing: 0.48px;
+        @media (max-width: $mobileSmall) {
+            font-size: 38px;
+        }
+    }
+    &__list {
+    }
+    &__item {
+        // font-family: 'Korolev';
+        font-weight: bold;
+        line-height: 1.33;
+        letter-spacing: .8px;
+        @media (min-width: 1100px) {
+            font-size: 24px;
+        }
+        @media (max-width: $mobileSmall) {
+            font-weight: 500;
+            font-size: 16px;
+        }
+    }
+    &__name {
+    }
+    &__number {
+        color: #a7d3ce;
+    }
+}

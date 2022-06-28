@@ -1,0 +1,166 @@
+.footer {
+    background-color: #23929e;
+    padding: 80px 0 200px 0;
+    color: #a7d3ce;
+    @media (max-width: $tablet) {
+        padding: 50px 0px;
+    }
+    @media (max-width: $mobileSmall) {
+        padding: 30px 0px;
+    }
+    &__container {
+    }
+    &__wrap {
+        max-width: 970px;
+        display: flex;
+        flex-wrap: wrap;
+        @media (min-width: 441px) {
+            justify-content: space-between;
+        }
+        @media (max-width: $mobile) {
+            max-width: 500px;
+            padding-bottom: 50px;
+            position: relative;
+        }
+        @media (max-width: 440px) {
+            padding-bottom: 60px;
+        }
+    }
+    &__item {
+        @media (max-width: 440px) {
+            width: 100%;
+        }
+        &:first-child {
+            @media (min-width: $mobile) {
+                max-width: 360px;
+            }
+            @media (max-width: $mobile) {
+                margin-bottom: 40px;
+            }
+            @media (max-width: $mobileSmall) {
+                margin-bottom: 25px;
+            }
+        }
+        &:last-child {
+            @media (max-width: 440px) {
+                margin-top: 15px;
+                display: grid;
+                grid-template-columns: auto auto auto;
+                gap: 10px;
+            }
+            .footer__title {
+                display: block;
+                @media (min-width: $mobile) {
+                    &:not(:last-child) { margin-bottom: 60px; }
+                }
+                @media (max-width: $mobile) {
+                    @media (min-width: 441px) {
+                        &:not(:last-child) { margin-bottom: 30px; }
+                    }
+                }
+                @media (max-width: 440px){
+                    margin-bottom: 0;
+                }
+            }
+        }
+        a {
+            line-height: 1.6;
+            letter-spacing: 1px;
+            transition: color .3s ease-in-out;
+            transition: color .3s ease-in-out;
+            @media (min-width: $tablet) {
+                &:hover {
+                    color: $mainColor;
+                }
+            }
+            @media (max-width: $mobileSmall) {
+                line-height: 1.4;
+            }
+        }
+    }
+    &__title {
+        font-family: 'Korolev';
+        font-weight: bold;
+        line-height: 1.2;
+        letter-spacing: 1.92px;
+        text-transform: uppercase;
+        &:first-child {
+            margin-bottom: 25px;
+            @media (max-width: $mobileSmall) {
+                margin-bottom: 10px;
+            }
+        }
+        @media (min-width: $mobileSmall) {
+            font-size: 24px;
+        }
+    }
+    &__text {
+        line-height: 1.2;
+        letter-spacing: 1px;
+        margin-bottom: 25px;
+        @media (max-width: $mobileSmall) {
+            font-size: 16px;
+            line-height: 1.2;
+            letter-spacing: 0.8px;
+            margin-bottom: 15px;
+        }
+    }
+    &__enter-field {
+        background-color: #a7d3ce;;
+        width: 100%;
+        height: 48px;
+        padding: 15px;
+        @media (min-width: $mobile) {
+            margin-bottom: 70px;
+        }
+        input {
+            background-color: transparent;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            color: #23929e;
+            width: 100%;
+            @media (min-width: $tablet) {
+                &:hover::placeholder {
+                    color: $accent-color;
+                }
+            }
+            &::placeholder {
+                color: #23929e;
+                line-height: 1;
+                transition: color .3s ease-in-out;
+            }
+        }
+    }
+    &__company-name {
+        line-height: 1.2;
+        letter-spacing: 1px;
+        @media (max-width: $mobile) {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+    &__address {
+        font-style: normal;
+        line-height: 1.6;
+        letter-spacing: 1px;
+        @media (max-width: $mobileSmall) {
+            font-size: 16px;
+            line-height: 1.2;
+            letter-spacing: 0.8px;
+        }
+    }
+    &__phone {
+        display: block;
+        margin-top: 30px;
+        @media (max-width: $mobile) {
+            margin-top: 15px;
+        }
+        @media (max-width: $mobileSmall) {
+            margin-top: 5px;
+        }
+    }
+    &__mail {
+    }
+}

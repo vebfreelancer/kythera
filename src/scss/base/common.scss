@@ -1,0 +1,246 @@
+.btn {
+    width: 360px;
+    height: 56px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1.6px;
+    line-height: 56px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    @media (min-width: $mobileSmall) {
+        justify-content: center;
+    }
+    @media (max-width: $mobileSmall) {
+        font-size: 16px;
+    }
+    svg {
+        margin-left: 15px;
+        @media (max-width: $mobileSmall) {
+            margin-left: 10px;
+        }
+    }
+}
+.btn-one-color {
+    background-color: $color-one;
+    transition: background-color .3s ease-in-out;
+    @media (min-width: $tablet) {
+        &:hover {
+            background-color: #df6958;
+        }
+    }
+}
+.btn-two-color {
+    background-color: $color-two;
+    transition: background-color .3s ease-in-out;
+    @media (min-width: $tablet) {
+        &:hover {
+            background-color: #e4ac6f;
+        }
+    }
+}
+.btn-three-color {
+    background-color: $color-three;
+    transition: background-color .3s ease-in-out;
+    @media (min-width: $tablet) {
+        &:hover {
+            background-color: #83c4be;
+        }
+    }
+}
+.btn-accent-color {
+    // background-color: #33465e;
+    background-color: $accent-color;
+    transition: background-color .3s ease-in-out;
+    @media (min-width: $tablet) {
+        &:hover {
+            background-color: #3f8892;
+        }
+    }
+}
+.icon-arrow-btn {
+    width: 23.826px;
+    height: 17.386px;
+    @media (max-width: $mobileSmall) {
+        width: 18.4px;
+        height: 15px;
+    }
+}
+.section-label {
+    // font-family: 'Korolev';
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: 1.92px;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    @media (max-width: $mobileSmall) {
+        font-size: 16px;
+        line-height: 1.8;
+        &::after {
+            display: none;
+        }
+    }
+}
+.view-link {
+    position: relative;
+    transition: color .3s ease-in-out;
+    @media (min-width: $tablet) {
+        &:hover::after {
+            width: 100%;
+        }
+    }
+    @media (max-width: $mobileSmall) {
+        font-size: 16px;
+    }
+    &::after {
+        content: '';
+        background-color: $accent-color;
+        height: 1px;
+        width: 0;
+        display: block;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        transition: width .3s linear;
+    }
+    svg {
+        width: 23.132px;
+        height: 16.693px;
+        @media (max-width: $mobileSmall) {
+            width: 18px;
+            height: 15px;
+        }
+    }
+}
+.icon-arrow-slider {
+    width: 30px;
+    height: 22px;
+    @media (max-width: $mobileSmall) {
+        width: 26px;
+        height: 18px;
+    }
+}
+.scroll-up-btn {
+    background-color: $color-two;
+    border: 2px solid $color-one;
+    width: 50px;
+    height: 50px;
+    color: $color-one;
+    position: fixed;
+    right: 25px;
+    bottom: 30px;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .3s, opacity .3s linear;
+    transition: background-color, border-color, color, .3s ease-in-out;
+    @media (min-width: $tablet) {
+        &:hover {
+            background-color: #e4ac6f;
+            border-color: #df6958;
+            color: #df6958;
+        }
+    }
+    @media (max-width: $tablet) {
+        width: 40px;
+        height: 40px;
+    }
+    @media (max-width: $mobile) {
+        width: 35px;
+        height: 35px;
+        right: 15px;
+        bottom: 20px;
+    }
+    &.show {
+        visibility: visible;
+        opacity: 1;
+    }
+    svg {
+        transform: rotate(-90deg);
+        width: 30px;
+        height: 22px;
+        @media (max-width: $tablet) {
+            width: 20px;
+            height: 15px;
+        }
+    }
+}
+.show-more-btn {
+    border-bottom: 1px solid $accent-color;
+    margin-top: 60px;
+    padding-bottom: 15px;
+    text-align: center;
+    @media (max-width: $mobile) {
+        margin-top: 30px;
+    }
+    @media (max-width: $mobileSmall) {
+        margin-top: 20px;
+    }
+    button, a {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.5;
+        letter-spacing: 1.28px;
+        color: $accent-color;
+        transition: color .3s ease-in-out;
+        @media (min-width: $tablet) {
+            &:hover {
+                color: $hover;
+            }
+        }
+    }
+}
+.form-btn {
+    width: 100%;
+    height: 48px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color .3s ease-in-out;
+}
+.form-buttons {
+    margin-top: 32px;
+    @media (min-width: $mobileSmall) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 25px;
+    }
+    &__submit {
+        background-color: $color-two;
+        @media (min-width: $tablet) {
+            &:hover {
+                background-color: #e4ac6f;
+            }
+        }
+    }
+    &__reset {
+        background: $color-three;
+        font-size: 16px;
+        color: $accent-color;
+        @media (min-width: $tablet) {
+            &:hover {
+                background-color: #a7d3ce;
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            margin-top: 20px;
+        }
+    }
+}
+.paragraf-link {
+    font-weight: 800;
+    transition: color .3s ease-in-out;
+    @media (min-width: $tablet) {
+        &:hover {
+            color: $hover;
+        }
+    }
+}

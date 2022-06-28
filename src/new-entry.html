@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"New Entry"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<div class="inner-page">
+                    <div class="inner-page__container">
+                        <div class="inner-page__wrap">
+                            @@include('html/_aside-profile.htm',{})
+                            <div class="inner-page__content content-inner">
+                                <div class="content-inner__wrap">
+                                    <section class="entry-content">
+                                        <div class="entry-content__top profile-top">
+                                            <h1 class="profile-top__title">Upload New Entry</h1>
+                                            <p class="profile-top__text">
+                                                New entries allow you to share your knowledge of Kytherian history or discover more about your Kytherian heritage. Select a category and up to two subcategories to classify your entry. For best practices on links and image uploads, view our <a href="#" class="paragraf-link">Entry Best Practices</a> in the Help section.
+                                            </p>
+                                        </div>
+                                        <form action="#" class="entry-content__form upload-form">
+                                            <div class="upload-form__row row-flex">
+                                                <div class="upload-form__select select-form">
+                                                    <div class="select-form__field">
+                                                        <input class="select-form__category" type="text" id="category" value="Select Category" readonly>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="4.16" height="8.616" viewBox="0 0 4.16 8.616">
+                                                            <path data-name="Path 111" d="M1300.155,820.932l3.131,4-3.131,4" transform="translate(-1299.761 -820.623)" fill="none" stroke="#27646c" stroke-miterlimit="10" stroke-width="1"/>
+                                                        </svg>
+                                                    </div>
+                                                    <ul class="select-form__list">
+                                                        <li class="select-form__option">Category 1</li>
+                                                        <li class="select-form__option">Category 2</li>
+                                                        <li class="select-form__option">Category 3</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="upload-form__select select-form">
+                                                    <div class="select-form__field">
+                                                        <input class="select-form__category" type="text" id="subcategory-1" value="Select Subcategory" readonly>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="4.16" height="8.616" viewBox="0 0 4.16 8.616">
+                                                            <path data-name="Path 111" d="M1300.155,820.932l3.131,4-3.131,4" transform="translate(-1299.761 -820.623)" fill="none" stroke="#27646c" stroke-miterlimit="10" stroke-width="1"/>
+                                                        </svg>
+                                                    </div>
+                                                    <ul class="select-form__list">
+                                                        <li class="select-form__option">Category 1</li>
+                                                        <li class="select-form__option">Category 2</li>
+                                                        <li class="select-form__option">Category 3</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="upload-form__select select-form">
+                                                    <div class="select-form__field">
+                                                        <input class="select-form__category" type="text" id="subcategory-2" value="Select Subcategory" readonly>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="4.16" height="8.616" viewBox="0 0 4.16 8.616">
+                                                            <path data-name="Path 111" d="M1300.155,820.932l3.131,4-3.131,4" transform="translate(-1299.761 -820.623)" fill="none" stroke="#27646c" stroke-miterlimit="10" stroke-width="1"/>
+                                                        </svg>
+                                                    </div>
+                                                    <ul class="select-form__list">
+                                                        <li class="select-form__option">Category 1</li>
+                                                        <li class="select-form__option">Category 2</li>
+                                                        <li class="select-form__option">Category 3</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="upload-form__row drag-drop">
+                                                <div class="upload-form__instruction">
+                                                    <span>Upload Photos</span> 3 photos max, 800 px minimum width, jpg/png/tiff accepted
+                                                </div>
+                                                <div class="drag-drop__field">
+                                                    <p class="drag-drop__placeholder">Drag and Drop Photos or Click Box to Upload From Computer</p>
+                                                    <div class="drag-drop__box"></div>
+                                                </div>
+                                                <ul class="upload-files">
+                                                    <li class="upload-files__item">
+                                                        <input class="input-upload-photo" type="file" id="file-1" name="file" accept="image/png, image/jpeg, image/tiff">
+                                                        <label for="file-1">
+                                                            <span class="upload-files__marker">1</span>
+                                                            <svg data-name="Group 143" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="27.942" height="24" viewBox="0 0 27.942 24">
+                                                                <path data-name="Path 129" d="M1538.087,1471.851H1526.05a1.766,1.766,0,0,1-1.934-1.939q0-10.046,0-20.092a1.773,1.773,0,0,1,1.966-1.969h24.042a1.766,1.766,0,0,1,1.934,1.939q0,10.062,0,20.123a1.768,1.768,0,0,1-1.935,1.938Zm-11.975-5c.145-.172.237-.28.327-.389q3.7-4.473,7.4-8.946a1.407,1.407,0,0,1,2.376-.077c1.118,1.2,2.226,2.42,3.355,3.614a1.022,1.022,0,0,0,1.573.079c.372-.3.731-.617,1.1-.925a1.075,1.075,0,0,1,1.751.115q2.937,3.172,5.876,6.342c.046.049.1.093.192.182v-.271q-.007-7.905-.015-15.81c0-.625-.31-.919-.954-.919h-22.012c-.666,0-.969.305-.969.973q0,7.826,0,15.653Z" transform="translate(-1524.116 -1447.851)"/>
+                                                                <path data-name="Path 130" d="M1817.607,1514.881a2.994,2.994,0,1,1-2.989-3A3,3,0,0,1,1817.607,1514.881Z" transform="translate(-1793.657 -1507.876)"/>
+                                                            </svg>
+                                                            <span class="upload-files__file-name">select your photo (jpg, png, tiff)</span>
+                                                        </label>
+                                                        <div class="upload-files__buttons">
+                                                            <button type="button" class="upload-files__view">View</button>
+                                                            <button type="button" class="upload-files__delete">Delete</button>
+                                                        </div>
+                                                        <div class="preview-photo">
+                                                            <div class="preview-photo__wrap">
+                                                                <div class="preview-photo__window">
+                                                                    <div class="preview-photo__close">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
+                                                                            <g data-name="Group 229" transform="translate(-866.101 -18.101)">
+                                                                                <rect data-name="Rectangle 91" width="29.092" height="4.849" transform="translate(869.529 18.101) rotate(45)"/>
+                                                                                <rect data-name="Rectangle 92" width="29.092" height="4.849" transform="translate(866.101 38.672) rotate(-45)"/>
+                                                                            </g>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="preview-photo__image"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="upload-files__item">
+                                                        <input class="input-upload-photo" type="file" id="file-2" name="file" accept="image/png, image/jpeg, image/tiff">
+                                                        <label for="file-2">
+                                                            <span class="upload-files__marker">2</span>
+                                                            <svg data-name="Group 143" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="27.942" height="24" viewBox="0 0 27.942 24">
+                                                                <path data-name="Path 129" d="M1538.087,1471.851H1526.05a1.766,1.766,0,0,1-1.934-1.939q0-10.046,0-20.092a1.773,1.773,0,0,1,1.966-1.969h24.042a1.766,1.766,0,0,1,1.934,1.939q0,10.062,0,20.123a1.768,1.768,0,0,1-1.935,1.938Zm-11.975-5c.145-.172.237-.28.327-.389q3.7-4.473,7.4-8.946a1.407,1.407,0,0,1,2.376-.077c1.118,1.2,2.226,2.42,3.355,3.614a1.022,1.022,0,0,0,1.573.079c.372-.3.731-.617,1.1-.925a1.075,1.075,0,0,1,1.751.115q2.937,3.172,5.876,6.342c.046.049.1.093.192.182v-.271q-.007-7.905-.015-15.81c0-.625-.31-.919-.954-.919h-22.012c-.666,0-.969.305-.969.973q0,7.826,0,15.653Z" transform="translate(-1524.116 -1447.851)"/>
+                                                                <path data-name="Path 130" d="M1817.607,1514.881a2.994,2.994,0,1,1-2.989-3A3,3,0,0,1,1817.607,1514.881Z" transform="translate(-1793.657 -1507.876)"/>
+                                                            </svg>
+                                                            <span class="upload-files__file-name">select your photo (jpg, png, tiff)</span>
+                                                        </label>
+                                                        <div class="upload-files__buttons">
+                                                            <button type="button" class="upload-files__view">View</button>
+                                                            <button type="button" class="upload-files__delete">Delete</button>
+                                                        </div>
+                                                        <div class="preview-photo">
+                                                            <div class="preview-photo__wrap">
+                                                                <div class="preview-photo__window">
+                                                                    <div class="preview-photo__close">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
+                                                                            <g data-name="Group 229" transform="translate(-866.101 -18.101)">
+                                                                                <rect data-name="Rectangle 91" width="29.092" height="4.849" transform="translate(869.529 18.101) rotate(45)"/>
+                                                                                <rect data-name="Rectangle 92" width="29.092" height="4.849" transform="translate(866.101 38.672) rotate(-45)"/>
+                                                                            </g>
+                                                                        </svg>
+                                                                    </div>
+                                                                    <div class="preview-photo__image"></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="upload-form__row entry-info">
+                                                <div class="upload-form__label">Entry Title</div>
+                                                <div class="entry-info__fields">
+                                                    <div class="entry-info__input">
+                                                        <input type="text" placeholder="Enter Title (50 Character Max)">
+                                                    </div>
+                                                    <div class="entry-info__input">
+                                                        <input type="text" placeholder="Add Family Name (Optional)">
+                                                    </div>
+                                                    <div class="entry-info__input">
+                                                        <input type="text" placeholder="Add Village Name (Optional)">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="upload-form__row entry-text">
+                                                <div class="upload-form__label">Entry Text/Caption</div>
+                                                <div class="entry-text__field">
+                                                    <textarea name="caption" id="caption" placeholder="Enter Text…"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="upload-form__row drag-drop">
+                                                <div class="upload-form__instruction">
+                                                    <span>Upload Files</span> For Video & Audio Files, 5mb max
+                                                </div>
+                                                <div class="drag-drop__field">
+                                                    <p class="drag-drop__placeholder">Drag and Drop Photos or Click Box to Upload From Computer</p>
+                                                    <div class="drag-drop__box"></div>
+                                                </div>
+                                            </div>
+                                            <div class="upload-form__footer form-buttons">
+                                                <button class="form-buttons__submit form-btn" type="submit">Preview</button>
+                                                <button class="form-buttons__reset form-btn" type="reset">Clear Entry</button>
+                                            </div>
+                                        </form>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_popup.htm',{})
+		@@include('html/_js.htm',{})
+	</body>
+</html>

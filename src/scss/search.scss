@@ -1,0 +1,331 @@
+.advanced-search {
+    padding-top: 50px;
+    @media (max-width: $mobile) {
+        padding-top: 30px;
+    }
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.21;
+        letter-spacing: 1.92px;
+        text-transform: uppercase;
+        color: $accent-color;
+        margin-bottom: 15px;
+        @media (max-width: $mobileSmall) {
+            font-size: 18px;
+        }
+    }
+    &__text {
+        line-height: 1.2;
+        letter-spacing: 1px;
+        color: $accent-color;
+        margin-bottom: 30px;
+        @media (max-width: $mobileSmall) {
+            font-size: 16px;
+            line-height: 1.2;
+            letter-spacing: 0.8px;
+            margin-bottom: 25px;
+        }
+    }
+    &__form {
+    }
+}
+.form-search {
+    &__row {
+        margin-bottom: 25px;
+    }
+    &__select {
+    }
+    &__footer {
+    }
+}
+.keywords-field {
+    background-color: #f5ead9;
+    height: 48px;
+    padding: 15px;
+    @media (max-width: $mobileSmall) {
+        height: 85px;
+        margin-bottom: 15px;
+    }
+    textarea {
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        resize: none;
+        outline: none;
+    }
+}
+.text-field {
+    input {
+        background-color: #f5ead9;
+        width: 100%;
+        height: 48px;
+        padding: 15px;
+        &:first-child {
+            margin-right: 25px;
+            @media (max-width: $mobile) {
+                margin: 0 0 25px 0;
+            }
+            @media (max-width: $mobileSmall) {
+                margin: 0 0 15px 0;
+            }
+        }
+    }
+}
+.keywords-field,
+.text-field input {
+    border: 1px solid transparent;
+    transition: border-color .3s ease-in-out;
+    @media (min-width: $tablet) {
+        &:hover {
+            border-color: $color-two;
+        }
+    }
+}
+#form-keywords,
+#input-autor,
+#input-village {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    color: $color-two;
+    &::placeholder {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 100%;
+        letter-spacing: 0.8px;
+        color: $color-two;
+    }
+    &:focus {
+        color: $color-two;
+    }
+}
+.row-flex {
+    @media (min-width: $mobile) {
+        display: flex;
+        align-items: center;
+    }
+}
+.select-form {
+    background-color: transparent;
+    flex: 1;
+    position: relative;
+    transition: background-color .3s ease-in-out;
+    @media (min-width: $tablet) {
+        &:hover {
+            background-color: #A7D3CE;
+            input {
+                color: $accent-color;
+            }
+        }
+    }
+    @media (min-width: $mobile) {
+        &:not(:last-child) { margin-right: 25px; }
+    }
+    @media (max-width: $mobileSmall) {
+        &:not(:last-child) {margin-bottom: 20px;}
+    }
+    &.open {
+        .select-form__list {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    &__field {
+        border: solid 1px #a7d3ce;
+        height: 32px;
+        padding: 6px 25px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        @media (max-width: $pc) {
+            padding: 6px 15px;
+        }
+        @media (max-width: $mobile) {
+            height: 48px;
+            padding: 15px;
+        }
+        input {
+            transition: color .3s linear;
+            background-color: transparent;
+            width: 100%;
+            margin-right: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 0.94;
+            letter-spacing: 0.8px;
+            color: #a7d3ce;
+            cursor: pointer;
+            &::placeholder {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1;
+                letter-spacing: 0.8px;
+                color: #a7d3ce;
+            }
+        }
+        svg {
+            transition: transform .3s linear;
+            transform: rotate(90deg);
+        }
+        &.open svg {
+            transform: rotate(0);
+        }
+    }
+    &__category {
+    }
+    &__list {
+        transition: visibility .3s, opacity .3s linear;
+        background-color: #a7d3ce;
+        border: 1px solid $accent-color;
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 0.94;
+        letter-spacing: 0.8px;
+        color: $accent-color;
+        position: absolute;
+        top: 120%;
+        left: 0;
+        z-index: 20;
+        visibility: hidden;
+        opacity: 0;
+    }
+    &__option {
+        padding: 8px 25px;
+        cursor: pointer;
+        transition: background-color, color, .4s linear;
+        @media (min-width: $tablet) {
+            &:hover {
+                background: $color-three;
+                color: $mainColor;
+            }
+        }
+    }
+    &__sub-category {
+    }
+}
+.selects-row {
+    @media (max-width: $mobile) {
+        @media (min-width: $mobileSmall) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 25px;
+        }
+    }
+}
+.radio-btns {
+    &__title {
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: 1.28px;
+        color: $accent-color;
+        margin-bottom: 15px;
+    }
+    &__row {
+        @media (min-width: $mobile) {
+            display: flex;
+            align-items: center;
+        }
+        @media (max-width: $mobile) {
+            @media (min-width: $mobileSmall) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px 25px;
+            }
+        }
+    }
+    &__item {
+        background-color: #a7d3ce;
+        height: 32px;
+        flex: 1;
+        @media (min-width: $mobile) {
+            &:not(:last-child) { 
+                margin-right: 25px;
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            &:not(:last-child) { margin-bottom: 15px; }
+            height: 48px;
+        }
+    }
+    &__label {
+        transition: border-color .3s ease-in-out;
+        border: 1px solid transparent;
+        height: 100%;
+        padding: 8px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        @media (min-width: $tablet) {
+            &:hover {
+                border-color: $accent-color;
+            }
+        }
+        @media (max-width: $mobileSmall) {
+            padding: 15px;
+        }
+        svg {
+            display: none;
+        }
+        span {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 0.94;
+            letter-spacing: 0.8px;
+            color: $accent-color;
+            margin-left: 8px;
+        }
+        &::before {
+            content: '';
+            border: solid 1px $accent-color;
+            border-radius: 50%;
+            display: block;
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+input[name="radio"]:checked + .radio-btns__label {
+    background-color: $accent-color;
+    &::before {
+        display: none;
+    }
+    svg {
+        display: block;
+    }
+    span {
+        color: #a7d3ce;
+    }
+}
+input[type="radio"] {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}
+.page-search {
+    max-width: 785px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto 0 auto;
+    padding-bottom: 300px;
+    @media (max-width: $tablet) {
+        padding-bottom: 100px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    @media (max-width: $mobile) {
+        padding-bottom: 50px;
+    }
+    @media (max-width: $mobileSmall) {
+        padding-bottom: 30px;
+    }
+}

@@ -1,0 +1,140 @@
+@use "sass:math";
+
+// Connection of myxins ===========================================================================================================================================================================================================================================================================
+@import "base/mixins";
+
+// Connection of fonts ===========================================================================================================================================================================================================================================================================
+//&display=swap - Add when connected via plugin
+@import "base/fonts";
+
+
+// Default font ==============================================================================================================================================================================================================================================================================
+$fontFamily: "Raleway";
+$fontSize: rem(20); // where 14 (px) - default font size from the layout
+
+// SETTINGS ===============================================================================================================================================================================================================================================================================================
+// The minimum page width
+$minWidth: 320;
+// The width of the canvas (layout)
+$maxWidth: 1920;
+// The width of the limiting container (0 = no restriction)
+$maxWidthContainer: 1130;
+// General indenter
+// (30 = 15px on the left and right, 0 = there is no retreat)
+$containerPadding: 40;
+
+// Type of adaptive:
+// 1 = responsiveness (the container does not have a breakpoint),
+// 2 = according to Break-Pints (the container changes its width according to the Break-applications)
+$responsiveType: 1;
+
+// width of the first breikpointa
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Break-Pints
+$pc: em($containerWidth); // PC, laptops, some tablets in a horizontal position
+$tablet: em(991.98); // Tablets, some phones in a horizontal position
+$mobile: em(767.98); // Phones l
+$mobileSmall: em(479.98); // Phones s
+
+// The main color of the font
+$mainColor: #f9f7f2;
+$accent-color: #24646D;
+$color-one: #C9503F;
+$color-two: #d69956;
+$color-three: #71B5AF;
+$hover: #5381AA;
+
+// Zeroing and general parameters ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
+@import "base/null";
+
+body {
+	font-weight: 400;
+	color: $mainColor;
+	// Scroll is blocked
+	.lock & {
+		overflow: hidden;
+	}
+}
+
+// Shell ============================================================================================================================================================================================================================================================================================================================================================================================================================================
+.wrapper {
+	min-height: 100%;
+	display: grid;
+	overflow: hidden;
+	grid-template-rows: auto 1fr auto;
+	// The site is loaded
+	.loaded & {
+	}
+}
+
+// Limiting container ===========================================================================================================
+@if ($responsiveType==1) {
+	// Responsive
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: rem($maxWidthContainer);
+			box-sizing: content-box;
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			padding: 0 rem(math.div($containerPadding, 2));
+			@media (max-width: $mobile) {
+				padding: 0px 25px;
+			}
+		}
+	}
+} @else {
+	// According to Break-Pints
+	[class*="__container"] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: rem($maxWidthContainer);
+			box-sizing: content-box;
+		} @else {
+			@if ($containerPadding>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: rem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: rem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}
+
+// Import base files
+@import "base/common";
+@import "base/popup";
+
+// Import libs files
+@import "libs/hystmodal";
+@import "libs/OverlayScrollbars";
+
+// Connecting styles of individual blocks
+@import "header";
+@import "footer";
+
+// Connection of individual pages
+@import "home";
+@import "accordion";
+@import "inner-pages";
+@import "aside";
+@import "search";
+@import "family";
+@import "entry-pages";
+@import "profile";
+@import "about";
+
+// The main block of the page ====================================================================================================
+.page {
+	min-width: 0;
+}

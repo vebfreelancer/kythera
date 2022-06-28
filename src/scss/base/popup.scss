@@ -1,0 +1,70 @@
+.log-menu {
+	background-color: $accent-color;
+	padding: 90px 25px 115px 25px;
+	margin: 0 auto 0 auto;
+    position: relative;
+    @media (max-width: $mobileSmall) {
+        padding-bottom: 0;
+        height: 100%;
+    }
+	&__logo {
+		width: 160px;
+		height: 165px;
+		margin: 0 auto 40px auto;
+	}
+	&__form {
+	}
+	&__input {
+		background-color: $color-three;
+		margin-bottom: 30px;
+		input {
+			background-color: transparent;
+			width: 100%;
+			height: 45px;
+			padding: 12px 15px;
+			font-size: 16px;
+			font-weight: 500;
+			color: $accent-color;
+			&::placeholder {
+				font-size: 16px;
+				font-weight: 500;
+				color: $accent-color;
+			}
+			&:focus {
+				color: $accent-color;
+			}
+		}
+	}
+	&__buttons {
+		margin-top: 50px;
+		text-align: center;
+	}
+	&__login {
+		border: 3px solid transparent;
+		background-color: $color-two;
+		@media (min-width: $tablet) {
+			&:hover {
+				background-color: $mainColor;
+				border-color: $color-two;
+				color: $accent-color;
+			}
+		}
+		span {
+			margin-left: 8px;
+			font-size: 16px;
+			font-weight: 500;
+			text-transform: uppercase;
+		}
+	}
+	&__forget {
+		margin-top: 15px;
+		font-size: 16px;
+		font-weight: 500;
+		color: $color-three;
+		@media (min-width: $tablet) {
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+}

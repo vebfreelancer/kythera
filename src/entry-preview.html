@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	@@include('html/_head.htm',{
+	"title":"Entry Preview"
+	})
+	<body>
+		<div class="wrapper">
+			@@include('html/_header.htm',{})
+			<main class="page">
+				<div class="inner-page">
+                    <div class="inner-page__container">
+                        <div class="inner-page__wrap">
+                            @@include('html/_aside-profile.htm',{})
+                            <div class="inner-page__content content-inner">
+                                <div class="content-inner__wrap">
+                                    <section class="entry-content">
+                                        <div class="entry-content__top profile-top">
+                                            <h1 class="profile-top__title">Entry Preview</h1>
+                                            <p class="profile-top__text">
+                                                You are now previewing the way your entry will look. If you are happy with it, press POST. If you’d like to change things press EDIT. Once posted, an entry cannot be edited.
+                                            </p>
+                                        </div>
+                                        <div class="entry-content__card entry-card">
+                                            <div class="entry-card__image">
+                                                <img src="img/entry.jpg" alt="">
+                                            </div>
+                                            <div class="entry-card__footer">
+                                                <div class="entry-card__publication">
+                                                    <div class="entry-card__date">
+                                                        <time datetime="2017-03-24">Today o’clock</time> &bull;
+                                                        <span class="entry-card__autor">Ms. Aphrodite</span>
+                                                    </div>
+                                                    <div class="entry-card__description">Category, Subcat 1, Subcat 2</div>
+                                                </div>
+                                                <div class="entry-card__activity">
+                                                    <div class="entry-card__views">
+                                                        <span>x</span> <span>Views</span>
+                                                    </div>
+                                                    <div class="entry-card__comments"><span>x</span> Comments</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="content-inner__text inner-main-text">
+                                        <h1 class="inner-main-text__title">Example Entry Title</h1>
+                                        <p class="inner-main-text__paragraf">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel.
+                                        </p>
+                                        <p class="inner-main-text__paragraf">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel.
+                                        </p>
+                                    </section>
+                                    <form action="#" method="post" class="post-entry" id="post-entry-form">
+                                        <div class="post-entry__checkbox">
+                                            <input type="checkbox" id="conditions" name="conditions">
+                                            <label for="conditions" class="post-entry__label">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                                                    <path data-name="Path 120" d="M1547.375,64.333a8,8,0,1,0,8,8A8,8,0,0,0,1547.375,64.333Zm.748,11.138L1546.8,76.79a.769.769,0,0,1-1.089,0l-1.318-1.319-2.7-2.7a.769.769,0,0,1,0-1.089l.774-.774a.769.769,0,0,1,1.089,0l2.151,2.152a.771.771,0,0,0,1.089,0l4.59-4.59a.769.769,0,0,1,1.089,0l.774.774a.769.769,0,0,1,0,1.089Z" transform="translate(-1539.375 -64.333)"/>
+                                                </svg>
+                                                I agree with the <span>Terms & Conditions</span>.
+                                            </label>
+                                        </div>
+                                        <div class="post-entry__buttons">
+                                            <button class="post-entry__edit-btn btn btn-one-color" type="submit" id="edit-entry">Edit Entry</button>
+                                            <button class="post-entry__post-btn btn btn-two-color" type="submit" id="post-entry">Post Entry</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</main>
+			@@include('html/_footer.htm',{})
+		</div>
+		@@include('html/_popup.htm',{})
+		@@include('html/_js.htm',{})
+	</body>
+</html>
