@@ -2,7 +2,13 @@
 [vebfreelancer.github.io/kythera](https://vebfreelancer.github.io/kythera/dist/index.html)
 ```
 Australian Kiters Association website to find and host family ties.
-The task was performed under a fixed price agreement, eleven web pages were developed. Menu authorizations, personal accounts, and pages for creating new posts on the site through a personal office. Layouts of pages for development were presented in Adobe XD, design work was not completed, adaptive page layouts were shown only partially, adaptive and some points I developed independently in consultation with the client in the process of creating web pages. In the end, the results of the page are completed in full, taking into account all the details.
+The task was performed under a fixed price agreement, eleven web pages were developed.  
+Menu authorizations, personal accounts, and pages for creating new posts on the site  
+through a personal office. Layouts of pages for development were presented in Adobe XD,  
+design work was not completed, adaptive page layouts were shown only partially, adaptive  
+and some points I developed independently in consultation with the client in the process  
+of creating web pages. In the end, the results of the page are completed in full, taking  
+into account all the details.
 ```
 ### Pages
 1. [Home](https://vebfreelancer.github.io/kythera/dist/)
@@ -49,5 +55,5 @@ The task was performed under a fixed price agreement, eleven web pages were deve
 Given that the layout files are located on the githab server, which is accessible only to the owners in connection with which it is impossible to perform server settings for speed optimization.
 #### Plugins used:
 [^1]: [Hystmodal](https://addmorescripts.github.io/hystModal/)
-[^2]: [swiper](https://swiperjs.com/)
+[^2]: [Swiper](https://swiperjs.com/)
 [^3]: [Overlay Scrollbars](https://kingsora.github.io/OverlayScrollbars/)
