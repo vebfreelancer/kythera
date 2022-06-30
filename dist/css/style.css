@@ -2685,6 +2685,7 @@ THEMES:
 }
 
 .user__photo img {
+  border-radius: 100%;
   width: 72px;
   height: 72px;
   -o-object-fit: cover;
@@ -3412,9 +3413,17 @@ input[name=conditions]:checked + .post-entry__label svg {
 
 .drag-drop__field {
   background-color: #f5ead9;
-  min-height: 105px;
+  min-height: 150px;
   padding: 15px;
   margin-bottom: 15px;
+}
+
+.drag-drop__box {
+  border: 2px dashed #d69956;
+  display: block;
+  min-height: 120px;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .drag-drop__placeholder {
@@ -3423,19 +3432,9 @@ input[name=conditions]:checked + .post-entry__label svg {
   line-height: 1.2;
   letter-spacing: 0.8px;
   color: #d69956;
-  margin-bottom: 10px;
 }
 
-.upload-files__item {
-  color: #24646D;
-  position: relative;
-}
-
-.upload-files__item:not(:last-child) {
-  margin-bottom: 15px;
-}
-
-.upload-files__item input {
+.drop-files-input {
   width: 1px;
   height: 1px;
   position: absolute;
@@ -3443,29 +3442,20 @@ input[name=conditions]:checked + .post-entry__label svg {
   opacity: 0;
 }
 
-.upload-files__item label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-  -webkit-transition: color, fill, 0.3s ease-in-out;
-  -o-transition: color, fill, 0.3s ease-in-out;
-  transition: color, fill, 0.3s ease-in-out;
+.list-files__item {
+  color: #24646D;
+  position: relative;
 }
 
-.upload-files__item label svg {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+.list-files__item:not(:last-child) {
+  margin-bottom: 15px;
 }
 
-.upload-files__marker {
+.list-files__marker {
   margin-right: 15px;
 }
 
-.upload-files__file-name {
+.list-files__file-name {
   margin-left: 10px;
   white-space: nowrap;
   -o-text-overflow: ellipsis;
@@ -3473,37 +3463,38 @@ input[name=conditions]:checked + .post-entry__label svg {
   overflow: hidden;
 }
 
-.upload-files__file-name.invalid {
+.list-files__file-name.invalid {
   color: red;
 }
 
-.upload-files__buttons {
+.list-files__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-left: auto;
 }
 
-.upload-files__buttons button {
+.list-files__buttons button {
   color: #24646D;
 }
 
-.upload-files__view {
+.list-files__view {
   margin-right: 30px;
   -webkit-transition: color 0.3s linear;
   -o-transition: color 0.3s linear;
   transition: color 0.3s linear;
 }
 
-.upload-files__delete {
+.list-files__delete {
   -webkit-transition: color 0.3s linear;
   -o-transition: color 0.3s linear;
   transition: color 0.3s linear;
 }
 
-.preview-photo {
+.preview-box {
   background-color: rgba(0, 0, 0, 0.6);
   width: 100%;
   height: 100%;
@@ -3514,7 +3505,7 @@ input[name=conditions]:checked + .post-entry__label svg {
   display: none;
 }
 
-.preview-photo__wrap {
+.preview-box__wrap {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -3528,7 +3519,7 @@ input[name=conditions]:checked + .post-entry__label svg {
           justify-content: center;
 }
 
-.preview-photo__window {
+.preview-box__window {
   -webkit-box-shadow: 0px 0px 20px 5px rgba(96, 83, 83, 0.7);
           box-shadow: 0px 0px 20px 5px rgba(96, 83, 83, 0.7);
   background-color: #24646D;
@@ -3536,7 +3527,7 @@ input[name=conditions]:checked + .post-entry__label svg {
   position: relative;
 }
 
-.preview-photo__close {
+.preview-box__close {
   width: 24px;
   height: 24px;
   margin: 0 0 15px auto;
@@ -3550,14 +3541,14 @@ input[name=conditions]:checked + .post-entry__label svg {
   right: 15px;
 }
 
-.preview-photo__image img {
+.preview-box__image img {
   width: 350px;
   height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.preview-photo.active {
+.preview-box.active {
   display: block;
 }
 
@@ -4433,19 +4424,15 @@ input[name=conditions]:checked + .post-entry__label svg {
     background-color: #e4ac6f;
   }
 
-  .upload-files__item label:hover {
+  .list-files__view:hover {
     color: #d69956;
   }
 
-  .upload-files__view:hover {
-    color: #d69956;
-  }
-
-  .upload-files__delete:hover {
+  .list-files__delete:hover {
     color: #C9503F;
   }
 
-  .preview-photo__close:hover {
+  .preview-box__close:hover {
     color: #d69956;
   }
 
@@ -4490,7 +4477,7 @@ input[name=conditions]:checked + .post-entry__label svg {
 }
 
 @media (min-width: 661px) {
-  .upload-files__item {
+  .list-files__item {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -4530,7 +4517,7 @@ input[name=conditions]:checked + .post-entry__label svg {
 }
 
 @media (max-width: 660px) {
-  .upload-files__buttons {
+  .list-files__buttons {
     margin-top: 5px;
     padding-left: 65px;
   }
@@ -5024,7 +5011,7 @@ input[name=conditions]:checked + .post-entry__label svg {
     min-height: 160px;
   }
 
-  .upload-files__buttons {
+  .list-files__buttons {
     padding-left: 58px;
   }
 
@@ -5543,17 +5530,17 @@ input[name=conditions]:checked + .post-entry__label svg {
     margin: 20px 0 0 0;
   }
 
-  .upload-files__item {
+  .list-files__item {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 0.8px;
   }
 
-  .upload-files__marker {
+  .list-files__marker {
     margin-right: 10px;
   }
 
-  .preview-photo__image img {
+  .preview-box__image img {
     max-width: 350px;
     max-height: 300px;
     width: 100%;

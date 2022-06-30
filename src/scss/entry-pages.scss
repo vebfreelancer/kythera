@@ -378,12 +378,19 @@ input[name="conditions"]:checked +
 .drag-drop {
     &__field {
         background-color: #f5ead9;
-        min-height: 105px;
+        min-height: 150px;
         padding: 15px;
         margin-bottom: 15px;
         @media (max-width: $mobile) {
             min-height: 160px;
         }
+    }
+    &__box {
+        border: 2px dashed $color-two;
+        display: block;
+        min-height: 120px;
+        padding: 10px;
+        cursor: pointer;
     }
     &__placeholder {
         font-size: 16px;
@@ -391,12 +398,18 @@ input[name="conditions"]:checked +
         line-height: 1.2;
         letter-spacing: 0.8px;
         color: $color-two;
-        margin-bottom: 10px;
     }
-    &__box {
+    &__downloaded {
     }
 }
-.upload-files {
+.drop-files-input {
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}
+.list-files {
     &__item {
         &:not(:last-child) {margin-bottom: 15px;}
         color: $accent-color;
@@ -410,27 +423,6 @@ input[name="conditions"]:checked +
             font-size: 16px;
             font-weight: 500;
             letter-spacing: 0.8px;
-        }
-        input {
-            width: 1px;
-            height: 1px;
-            position: absolute;
-            visibility: hidden;
-            opacity: 0;
-        }
-        label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: color, fill, .3s ease-in-out;
-            @media (min-width: $tablet) {
-                &:hover {
-                    color: $color-two;
-                }
-            }
-            svg {
-                flex-shrink: 0;
-            }
         }
     }
     &__marker {
@@ -451,6 +443,7 @@ input[name="conditions"]:checked +
     &__buttons {
         display: flex;
         align-items: center;
+        margin-left: auto;
         @media (max-width: 660px) {
             margin-top: 5px;
             padding-left: 65px;
@@ -480,7 +473,7 @@ input[name="conditions"]:checked +
         }
     }
 }
-.preview-photo {
+.preview-box {
     background-color: rgba($color: #000, $alpha: .6);
     width: 100%;
     height: 100%;

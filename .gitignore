@@ -5,3 +5,4 @@ config/
 node_modules/
 **/*.zip
 **/*.rar
+.jshintrc

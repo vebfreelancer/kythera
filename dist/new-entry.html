@@ -5,7 +5,7 @@
 	<title>New Entry</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
-	<link rel="stylesheet" href="css/style.min.css?_v=20220626161047">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220630143002">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -131,7 +131,7 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button _spoller-active" data-spoller>
 								<span>Discover</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1656249047712" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1656588602744" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -166,7 +166,7 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button" data-spoller>
 								<span>Connect</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1656249047712" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1656588602744" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -201,7 +201,7 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button" data-spoller>
 								<span>Visit</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1656249047712" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1656588602744" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -236,10 +236,10 @@
 						<div class="nav-accordion__item">
 							<button type="button" class="nav-accordion__button" data-spoller>
 								<span class="nav-accordion__login">
-									<img src="img/icons/user-mob.svg?_v=1656249047712" alt="">
+									<img src="img/icons/user-mob.svg?_v=1656588602744" alt="">
 									Account
 								</span>
-								<img src="img/icons/accordion-menu-arrow.svg?_v=1656249047712" alt="">
+								<img src="img/icons/accordion-menu-arrow.svg?_v=1656588602744" alt="">
 							</button>
 							<ul class="nav-accordion__list">
 								<li class="nav-accordion__item-list">
@@ -273,7 +273,7 @@
 						<aside class="inner-page__aside aside profile-side" id="aside">
 							<div class="user">
 								<div class="user__photo">
-									<img src="img/icons/user-big.svg?_v=1656249047712" alt="">
+									<img src="img/icons/user-big.svg?_v=1656588602744" alt="">
 								</div>
 								<div class="user__info">
 									<div class="user__name">Ms. Aphrodite</div>
@@ -342,7 +342,7 @@
 											New entries allow you to share your knowledge of Kytherian history or discover more about your Kytherian heritage. Select a category and up to two subcategories to classify your entry. For best practices on links and image uploads, view our <a href="#" class="paragraf-link">Entry Best Practices</a> in the Help section.
 										</p>
 									</div>
-									<form action="#" class="entry-content__form upload-form">
+									<form action="#" class="entry-content__form upload-form" id="upload-new-entry">
 										<div class="upload-form__row row-flex">
 											<div class="upload-form__select select-form">
 												<div class="select-form__field">
@@ -389,71 +389,12 @@
 												<span>Upload Photos</span> 3 photos max, 800 px minimum width, jpg/png/tiff accepted
 											</div>
 											<div class="drag-drop__field">
-												<p class="drag-drop__placeholder">Drag and Drop Photos or Click Box to Upload From Computer</p>
-												<div class="drag-drop__box"></div>
+												<input type="file" class="drop-files-input" id="drop-image-input" multiple>
+												<label for="drop-image-input" class="drag-drop__box" id="image-dropbox">
+													<p class="drag-drop__placeholder">Drag and Drop Photos or Click Box to Upload From Computer</p>
+												</label>
 											</div>
-											<ul class="upload-files">
-												<li class="upload-files__item">
-													<input class="input-upload-photo" type="file" id="file-1" name="file" accept="image/png, image/jpeg, image/tiff">
-													<label for="file-1">
-														<span class="upload-files__marker">1</span>
-														<svg data-name="Group 143" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="27.942" height="24" viewBox="0 0 27.942 24">
-															<path data-name="Path 129" d="M1538.087,1471.851H1526.05a1.766,1.766,0,0,1-1.934-1.939q0-10.046,0-20.092a1.773,1.773,0,0,1,1.966-1.969h24.042a1.766,1.766,0,0,1,1.934,1.939q0,10.062,0,20.123a1.768,1.768,0,0,1-1.935,1.938Zm-11.975-5c.145-.172.237-.28.327-.389q3.7-4.473,7.4-8.946a1.407,1.407,0,0,1,2.376-.077c1.118,1.2,2.226,2.42,3.355,3.614a1.022,1.022,0,0,0,1.573.079c.372-.3.731-.617,1.1-.925a1.075,1.075,0,0,1,1.751.115q2.937,3.172,5.876,6.342c.046.049.1.093.192.182v-.271q-.007-7.905-.015-15.81c0-.625-.31-.919-.954-.919h-22.012c-.666,0-.969.305-.969.973q0,7.826,0,15.653Z" transform="translate(-1524.116 -1447.851)" />
-															<path data-name="Path 130" d="M1817.607,1514.881a2.994,2.994,0,1,1-2.989-3A3,3,0,0,1,1817.607,1514.881Z" transform="translate(-1793.657 -1507.876)" />
-														</svg>
-														<span class="upload-files__file-name">select your photo (jpg, png, tiff)</span>
-													</label>
-													<div class="upload-files__buttons">
-														<button type="button" class="upload-files__view">View</button>
-														<button type="button" class="upload-files__delete">Delete</button>
-													</div>
-													<div class="preview-photo">
-														<div class="preview-photo__wrap">
-															<div class="preview-photo__window">
-																<div class="preview-photo__close">
-																	<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
-																		<g data-name="Group 229" transform="translate(-866.101 -18.101)">
-																			<rect data-name="Rectangle 91" width="29.092" height="4.849" transform="translate(869.529 18.101) rotate(45)" />
-																			<rect data-name="Rectangle 92" width="29.092" height="4.849" transform="translate(866.101 38.672) rotate(-45)" />
-																		</g>
-																	</svg>
-																</div>
-																<div class="preview-photo__image"></div>
-															</div>
-														</div>
-													</div>
-												</li>
-												<li class="upload-files__item">
-													<input class="input-upload-photo" type="file" id="file-2" name="file" accept="image/png, image/jpeg, image/tiff">
-													<label for="file-2">
-														<span class="upload-files__marker">2</span>
-														<svg data-name="Group 143" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="27.942" height="24" viewBox="0 0 27.942 24">
-															<path data-name="Path 129" d="M1538.087,1471.851H1526.05a1.766,1.766,0,0,1-1.934-1.939q0-10.046,0-20.092a1.773,1.773,0,0,1,1.966-1.969h24.042a1.766,1.766,0,0,1,1.934,1.939q0,10.062,0,20.123a1.768,1.768,0,0,1-1.935,1.938Zm-11.975-5c.145-.172.237-.28.327-.389q3.7-4.473,7.4-8.946a1.407,1.407,0,0,1,2.376-.077c1.118,1.2,2.226,2.42,3.355,3.614a1.022,1.022,0,0,0,1.573.079c.372-.3.731-.617,1.1-.925a1.075,1.075,0,0,1,1.751.115q2.937,3.172,5.876,6.342c.046.049.1.093.192.182v-.271q-.007-7.905-.015-15.81c0-.625-.31-.919-.954-.919h-22.012c-.666,0-.969.305-.969.973q0,7.826,0,15.653Z" transform="translate(-1524.116 -1447.851)" />
-															<path data-name="Path 130" d="M1817.607,1514.881a2.994,2.994,0,1,1-2.989-3A3,3,0,0,1,1817.607,1514.881Z" transform="translate(-1793.657 -1507.876)" />
-														</svg>
-														<span class="upload-files__file-name">select your photo (jpg, png, tiff)</span>
-													</label>
-													<div class="upload-files__buttons">
-														<button type="button" class="upload-files__view">View</button>
-														<button type="button" class="upload-files__delete">Delete</button>
-													</div>
-													<div class="preview-photo">
-														<div class="preview-photo__wrap">
-															<div class="preview-photo__window">
-																<div class="preview-photo__close">
-																	<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
-																		<g data-name="Group 229" transform="translate(-866.101 -18.101)">
-																			<rect data-name="Rectangle 91" width="29.092" height="4.849" transform="translate(869.529 18.101) rotate(45)" />
-																			<rect data-name="Rectangle 92" width="29.092" height="4.849" transform="translate(866.101 38.672) rotate(-45)" />
-																		</g>
-																	</svg>
-																</div>
-																<div class="preview-photo__image"></div>
-															</div>
-														</div>
-													</div>
-												</li>
-											</ul>
+											<ul class="drag-drop__downloaded list-files"></ul>
 										</div>
 										<div class="upload-form__row entry-info">
 											<div class="upload-form__label">Entry Title</div>
@@ -537,7 +478,7 @@
 						</svg>
 					</button>
 					<div class="log-menu__logo">
-						<img src="img/icons/log-menu-logo.svg?_v=1656249047712" alt="">
+						<img src="img/icons/log-menu-logo.svg?_v=1656588602744" alt="">
 					</div>
 					<form action="#" class="log-menu__form">
 						<div class="log-menu__input">
@@ -568,7 +509,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="js/app.min.js?_v=20220626161047"></script>
+	<script src="js/app.min.js?_v=20220630143002"></script>
 </body>
 
 </html>

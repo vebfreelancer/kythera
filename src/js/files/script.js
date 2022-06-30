@@ -1,9 +1,12 @@
 /* ######################################################### IMPORT FUNCTIONALITY ######################################################### */
 
-import { menuClose, _slideToggle } from "./functions.js";
-import { bodyLockStatus } from "./functions.js";
-import { bodyUnlock } from "./functions.js";
-import { bodyLockToggle } from "./functions.js";
+import { 
+    menuClose, 
+    _slideToggle, 
+    bodyLockStatus, 
+    bodyUnlock, 
+    bodyLockToggle 
+} from "./functions.js";
 
 /* ####################################################### INITIALIZATION OF PLUGINS ####################################################### */
 
@@ -218,42 +221,162 @@ const ItemCurrentPage = () => {
 };
 ItemCurrentPage();
 
-/* ############################################################# UPLOAD FILES VIA INPUT ############################################################# */
+/* ############################################################# UPLOAD FILES ############################################################# */
 
-const UploadImageItems = document.querySelectorAll('.upload-files__item');
+const FormNewEntry = document.getElementById('upload-new-entry');
+const DragAndDrop = document.querySelectorAll('.drag-drop');
+const FilesArray = [];
+let fileTypes;
 
-function handleFiles(inputFile, preview) {
-    preview.innerHTML = '';
+function validFileType(file) {
+    for (let i = 0; i < fileTypes.length; i++) {
 
-    let file = inputFile.files[0];
-
-    let img = document.createElement("img");
-    img.file = file;
-    preview.append(img);
-
-    let reader = new FileReader();
-    reader.onload = (function(aImg) {
-        return function(e) {
-            aImg.src = e.target.result;
-        };
-    })(img);
-
-    reader.readAsDataURL(file);
+        if(file.type === fileTypes[i]) {
+            return true;
+        }
+    }
+    return false;
 }
 
-if (UploadImageItems) {
-    let fileTypes;
+const li = `<li class="list-files__item"> 
+                <span class="list-files__marker">1</span>
+                <svg data-name="Group 143" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="27.942" height="24" viewBox="0 0 27.942 24">
+                    <path data-name="Path 129" d="M1538.087,1471.851H1526.05a1.766,1.766,0,0,1-1.934-1.939q0-10.046,0-20.092a1.773,1.773,0,0,1,1.966-1.969h24.042a1.766,1.766,0,0,1,1.934,1.939q0,10.062,0,20.123a1.768,1.768,0,0,1-1.935,1.938Zm-11.975-5c.145-.172.237-.28.327-.389q3.7-4.473,7.4-8.946a1.407,1.407,0,0,1,2.376-.077c1.118,1.2,2.226,2.42,3.355,3.614a1.022,1.022,0,0,0,1.573.079c.372-.3.731-.617,1.1-.925a1.075,1.075,0,0,1,1.751.115q2.937,3.172,5.876,6.342c.046.049.1.093.192.182v-.271q-.007-7.905-.015-15.81c0-.625-.31-.919-.954-.919h-22.012c-.666,0-.969.305-.969.973q0,7.826,0,15.653Z" transform="translate(-1524.116 -1447.851)"/>
+                    <path data-name="Path 130" d="M1817.607,1514.881a2.994,2.994,0,1,1-2.989-3A3,3,0,0,1,1817.607,1514.881Z" transform="translate(-1793.657 -1507.876)"/>
+                </svg>
+                <span class="list-files__file-name">select your photo (jpg, png, tiff)</span>
+                <div class="list-files__buttons">
+                    <button type="button" class="list-files__view">View</button>
+                    <button type="button" class="list-files__delete">Delete</button>
+                </div>
+                <div class="preview-box">
+                    <div class="preview-box__wrap">
+                        <div class="preview-box__window">
+                            <div class="preview-box__close">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
+                                    <g data-name="Group 229" transform="translate(-866.101 -18.101)">
+                                        <rect data-name="Rectangle 91" width="29.092" height="4.849" transform="translate(869.529 18.101) rotate(45)"/>
+                                        <rect data-name="Rectangle 92" width="29.092" height="4.849" transform="translate(866.101 38.672) rotate(-45)"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="preview-box__image"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>`;
 
-    function validFileType(file) {
-        for (let i = 0; i < fileTypes.length; i++) {
+function handleFiles(files, dropblock) {
+    const ListFiles = dropblock.querySelector('.list-files');
 
-            if(file.type === fileTypes[i]) {
-                return true;
-            }
-        }
-        return false;
+    if (ListFiles.children.length > 0) {
+        ListFiles.querySelectorAll('li').forEach(el => el.remove());
     }
 
+    for (let i = 0; i < files.length; i++){
+        ListFiles.insertAdjacentHTML('afterBegin', li);
+    }
+
+    const outimage = dropblock.querySelectorAll('.preview-box__image');
+    const markers = document.querySelectorAll('.list-files__marker');
+    const filename = dropblock.querySelectorAll('.list-files__file-name');
+
+    for (let i = 0; i < files.length; i++){
+        let file = files[i];
+
+        let img = document.createElement("img");
+        img.file = file;
+        outimage[i].append(img);
+        markers[i].textContent = i + 1;
+        filename[i].textContent = file.name;
+
+        let reader = new FileReader();
+        reader.onload = (function(aImg) {
+            return function(e) {
+                aImg.src = e.target.result;
+            };
+        })(img);
+
+        reader.readAsDataURL(file);
+    }
+}
+
+function dragenter(event) {
+    event.stopPropagation();
+    event.preventDefault();
+}
+
+function dragover(event) {
+    event.stopPropagation();
+    event.preventDefault();
+}
+
+function drop(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    let dropTransfer = event.dataTransfer;
+    let files = dropTransfer.files;
+
+    if (FilesArray.length === 0) {
+        for (let i = 0; i < files.length; i++){
+            FilesArray.push(files[i]);
+        }
+    } else {
+        for (let i = 0; i < files.length; i++){
+            if (!FilesArray.find(item => item.name === files[i].name)){
+                FilesArray.push(files[i]);
+            }
+        }
+
+        let DT = new DataTransfer();
+        FilesArray.forEach(file => DT.items.add(file));
+        files = DT.files;
+    }
+        
+    handleFiles(files, this);
+
+    const input = this.querySelector('.drop-files-input');
+    input.files = files;
+}
+
+if (FormNewEntry) {
+    DragAndDrop.forEach(el => {
+        el.addEventListener("dragenter", dragenter, false);
+        el.addEventListener("dragover", dragover, false);
+        el.addEventListener("drop", drop, false);
+
+        el.addEventListener('change', function(event) {
+            const target = event.target;
+            const files = this.querySelector('.drop-files-input').files;
+            const dropbox = this.querySelector('.drag-drop__box');
+
+            if (target.closest('.drop-files-input')){
+                handleFiles(files, dropbox);
+                // console.log('input.files: ', files);
+            }
+        });
+
+        el.addEventListener('click', function(event) {
+            const target = event.target;
+            const listFiles = this.querySelector('.list-files');
+
+            if (target.closest('.list-files__delete')){
+                // listFiles.querySelectorAll('li').forEach(el => el.remove());
+                // FilesArray.splice(0, 1);
+                // let dt = new DataTransfer();
+
+                // FilesArray.forEach(file => {
+                //     dt.items.add(file);
+                // });
+
+                // files = dt.files;
+                console.log(1);
+            }
+        });
+    });
+
+    /*
     UploadImageItems.forEach(el => {
         el.addEventListener('change', function(event){
             const target = event.target;
@@ -283,15 +406,16 @@ if (UploadImageItems) {
             const target = event.target;
             const input = this.querySelector('input[type="file"]');
             const label = this.querySelector('.upload-files__file-name');
-            const previewBox = this.querySelector('.preview-photo');
-            const previewImage = this.querySelector('.preview-photo__image');
+            const previewBox = this.querySelector('.preview-box');
+            const previewImage = this.querySelector('.preview-box__image');
 
             if (target.closest('.upload-files__view') && input.value !== '') {
-                handleFiles(input, previewImage);
+                previewImage.innerHTML = '';
+                handleFiles(input.files, previewImage);
                 previewBox.classList.toggle('active');
             }
 
-            if (target.closest('.preview-photo__close')) {
+            if (target.closest('.preview-box__close')) {
                 previewBox.classList.remove('active');
             }
 
@@ -309,49 +433,8 @@ if (UploadImageItems) {
             }
         });
     });
+    */
 }
-
-/* ############################################################### STICKY BLOCK ############################################################### */
-
-/*
-const aside = document.getElementById('aside');
-const AsideNav = document.getElementById('aside-nav');
-const footer = document.querySelector('.footer');
-
-if (AsideNav) {
-    const stickyBlock = () => {
-        let scrollPage = window.scrollY;
-        let AsideRect = aside.getBoundingClientRect();
-        let AsideNavRect = AsideNav.getBoundingClientRect();
-    
-        window.addEventListener('scroll', function(){
-            scrollPage = window.scrollY;
-            if (scrollPage + AsideNavRect.height > AsideNavRect.height) {
-                AsideNav.classList.add('sticky');
-                // AsideNav.style.position = 'fixed';
-                AsideNav.style.width = AsideRect.width + 'px';
-                // AsideNav.style.left = aside.clientLeft + 'px';
-            } else {
-                AsideNav.style.width = '';
-                AsideNav.classList.remove('sticky');
-            }
-
-            // console.log(footer.offsetTop);
-    
-            if (scrollPage + AsideNavRect.height >= footer.offsetTop) {
-                // AsideNav.classList.remove('sticky');
-                // aside.classList.add('flex');
-            } else {
-                // aside.classList.remove('flex');
-            }
-        });
-    };
-
-    window.addEventListener('load', () => {
-        stickyBlock();
-    });
-}
-*/
 
 /* ############################################################### CHECK RESIZE ############################################################### */
 
