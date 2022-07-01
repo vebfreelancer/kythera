@@ -221,14 +221,17 @@ const ItemCurrentPage = () => {
 };
 ItemCurrentPage();
 
-/* ############################################################# UPLOAD FILES ############################################################# */
+/* ################################################################# UPLOAD FILES ################################################################# */
 
-const FormNewEntry = document.getElementById('upload-new-entry');
+const FormNewEntry = document.getElementById('upload-new-entry-form');
 const DragAndDrop = document.querySelectorAll('.drag-drop');
-const FilesArray = [];
-let fileTypes;
+const imageFileTypes = document.getElementById('image-file-input').accept.split(', ');
+const mediaFileTypes = document.getElementById('media-file-input').accept.split(', ');
 
-function validFileType(file) {
+const ImageFiles = [];
+const MediaFiles = [];
+
+function validFileType(file, fileTypes) {
     for (let i = 0; i < fileTypes.length; i++) {
 
         if(file.type === fileTypes[i]) {
@@ -260,46 +263,140 @@ const li = `<li class="list-files__item">
                                     </g>
                                 </svg>
                             </div>
-                            <div class="preview-box__image"></div>
+                            <div class="preview-box__file"></div>
                         </div>
                     </div>
                 </div>
             </li>`;
 
-function handleFiles(files, dropblock) {
-    const ListFiles = dropblock.querySelector('.list-files');
+function handleFiles(files, ThisBlock) {
+    const input = ThisBlock.querySelector('.drop-files-input');
+    const ListFiles = ThisBlock.querySelector('.list-files');
 
     if (ListFiles.children.length > 0) {
         ListFiles.querySelectorAll('li').forEach(el => el.remove());
     }
 
-    for (let i = 0; i < files.length; i++){
-        ListFiles.insertAdjacentHTML('afterBegin', li);
+    if (ThisBlock.dataset.files === 'image') {
+
+        for (let i = 0; i < files.length; i++) {
+            const valid = validFileType(files[i], imageFileTypes);
+            const unique = !ImageFiles.find(item => item.name === files[i].name);
+
+            if (valid && ImageFiles.length < 3 && unique) {
+                ImageFiles.push(files[i]);
+            }
+        }
+
+        for (let i = 0; i < ImageFiles.length; i++){
+            ListFiles.insertAdjacentHTML('afterBegin', li);
+        }
     }
 
-    const outimage = dropblock.querySelectorAll('.preview-box__image');
-    const markers = document.querySelectorAll('.list-files__marker');
-    const filename = dropblock.querySelectorAll('.list-files__file-name');
+    if (ThisBlock.dataset.files === 'media') {
+        const maxsize = Number(input.dataset.sizeMb);
 
-    for (let i = 0; i < files.length; i++){
-        let file = files[i];
+        for (let i = 0; i < files.length; i++) {
+            const valid = validFileType(files[i], mediaFileTypes);
+            const unique = !MediaFiles.find(item => item.name === files[i].name);
+            const size = Number((files[i].size / (1024*1024)).toFixed(2));
 
-        let img = document.createElement("img");
-        img.file = file;
-        outimage[i].append(img);
-        markers[i].textContent = i + 1;
-        filename[i].textContent = file.name;
+            if (valid && unique && size <= maxsize) {
+                MediaFiles.push(files[i]);
+            }
+        }
 
-        let reader = new FileReader();
-        reader.onload = (function(aImg) {
-            return function(e) {
-                aImg.src = e.target.result;
-            };
-        })(img);
-
-        reader.readAsDataURL(file);
+        for (let i = 0; i < MediaFiles.length; i++){
+            ListFiles.insertAdjacentHTML('afterBegin', li);
+        }
     }
+
+    const markers = ThisBlock.querySelectorAll('.list-files__marker');
+    const filename = ThisBlock.querySelectorAll('.list-files__file-name');
+    const outFiles = ThisBlock.querySelectorAll('.preview-box__file');
+
+    let DT = new DataTransfer();
+
+    if (ThisBlock.dataset.files === 'image') {
+
+        for (let i = 0; i < ImageFiles.length; i++){
+            let file = ImageFiles[i];
+            let img = document.createElement("img");
+            img.file = file;
+
+            outFiles[i].append(img);
+            markers[i].textContent = i + 1;
+            filename[i].textContent = file.name;
+
+            let reader = new FileReader();
+            reader.onload = (function(aImg) {
+                return function(e) {
+                    aImg.src = e.target.result;
+                };
+            })(img);
+
+            reader.readAsDataURL(file);
+            DT.items.add(file);
+        }
+
+        files = DT.files;
+        input.files = files;
+    }
+
+    if (ThisBlock.dataset.files === 'media') {
+
+        for (let i = 0; i < MediaFiles.length; i++){
+            let file = MediaFiles[i];
+            let video = document.createElement("video");
+            video.file = file;
+
+            outFiles[i].append(video);
+            markers[i].textContent = i + 1;
+            filename[i].textContent = file.name;
+
+            let reader = new FileReader();
+            reader.onload = (function(aVideo) {
+                return function(e) {
+                    aVideo.src = e.target.result;
+                };
+            })(video);
+
+            reader.readAsDataURL(file);
+            DT.items.add(file);
+        }
+
+        files = DT.files;
+        input.files = files;
+    }
+
+    ViewDeleteFile(ThisBlock);
 }
+
+function ViewDeleteFile(ThisBlock) {
+    const items = ThisBlock.querySelectorAll('.list-files__item');
+
+    items.forEach(el => {
+        el.addEventListener('click', function(event) {
+            const target = event.target;
+
+            if (target.closest('.list-files__delete')){
+                const FileName = this.querySelector('.list-files__file-name').textContent;
+                
+                if (ThisBlock.dataset.files === 'image') {
+                    const IndexFile = ImageFiles.findIndex(item => item.name === FileName);
+                    ImageFiles.splice(IndexFile, 1);
+                    handleFiles(ImageFiles, ThisBlock);
+                }
+
+                if (ThisBlock.dataset.files === 'media') {
+                    const IndexFile = MediaFiles.findIndex(item => item.name === FileName);
+                    MediaFiles.splice(IndexFile, 1);
+                    handleFiles(MediaFiles, ThisBlock);
+                }
+            }
+        });
+    });
+};
 
 function dragenter(event) {
     event.stopPropagation();
@@ -315,29 +412,9 @@ function drop(event) {
     event.stopPropagation();
     event.preventDefault();
 
-    let dropTransfer = event.dataTransfer;
-    let files = dropTransfer.files;
-
-    if (FilesArray.length === 0) {
-        for (let i = 0; i < files.length; i++){
-            FilesArray.push(files[i]);
-        }
-    } else {
-        for (let i = 0; i < files.length; i++){
-            if (!FilesArray.find(item => item.name === files[i].name)){
-                FilesArray.push(files[i]);
-            }
-        }
-
-        let DT = new DataTransfer();
-        FilesArray.forEach(file => DT.items.add(file));
-        files = DT.files;
-    }
-        
+    let targetTransfer = event.dataTransfer;
+    let files = targetTransfer.files;
     handleFiles(files, this);
-
-    const input = this.querySelector('.drop-files-input');
-    input.files = files;
 }
 
 if (FormNewEntry) {
@@ -349,91 +426,12 @@ if (FormNewEntry) {
         el.addEventListener('change', function(event) {
             const target = event.target;
             const files = this.querySelector('.drop-files-input').files;
-            const dropbox = this.querySelector('.drag-drop__box');
 
             if (target.closest('.drop-files-input')){
-                handleFiles(files, dropbox);
-                // console.log('input.files: ', files);
-            }
-        });
-
-        el.addEventListener('click', function(event) {
-            const target = event.target;
-            const listFiles = this.querySelector('.list-files');
-
-            if (target.closest('.list-files__delete')){
-                // listFiles.querySelectorAll('li').forEach(el => el.remove());
-                // FilesArray.splice(0, 1);
-                // let dt = new DataTransfer();
-
-                // FilesArray.forEach(file => {
-                //     dt.items.add(file);
-                // });
-
-                // files = dt.files;
-                console.log(1);
+                handleFiles(files, this);
             }
         });
     });
-
-    /*
-    UploadImageItems.forEach(el => {
-        el.addEventListener('change', function(event){
-            const target = event.target;
-
-            if (target.closest('input[type="file"]')){
-                const input = this.querySelector('input[type="file"]');
-                const label = this.querySelector('.upload-files__file-name');
-                let CurrentFile = input.files[0];
-                fileTypes = input.accept.split(', ');
-
-                if (!label.hasAttribute('data-placeholder')) {
-                    label.setAttribute('data-placeholder', label.textContent);
-                }
-
-                if (validFileType(CurrentFile)) {
-                    label.classList.remove('invalid');
-                    label.innerHTML = CurrentFile.name;
-                } else {
-                    label.classList.add('invalid');
-                    label.innerHTML = CurrentFile.name + ' Invalid file type.';
-                    input.value = '';
-                }
-            }
-        });
-
-        el.addEventListener('click', function(event){
-            const target = event.target;
-            const input = this.querySelector('input[type="file"]');
-            const label = this.querySelector('.upload-files__file-name');
-            const previewBox = this.querySelector('.preview-box');
-            const previewImage = this.querySelector('.preview-box__image');
-
-            if (target.closest('.upload-files__view') && input.value !== '') {
-                previewImage.innerHTML = '';
-                handleFiles(input.files, previewImage);
-                previewBox.classList.toggle('active');
-            }
-
-            if (target.closest('.preview-box__close')) {
-                previewBox.classList.remove('active');
-            }
-
-            if (target.closest('.upload-files__delete')) {
-                label.classList.remove('invalid');
-
-                input.value = '';
-                if (previewImage.querySelector('img')) {
-                    previewImage.querySelector('img').remove();
-                }
-                
-                if (label.hasAttribute('data-placeholder')) {
-                    label.innerHTML = label.dataset.placeholder;
-                }
-            }
-        });
-    });
-    */
 }
 
 /* ############################################################### CHECK RESIZE ############################################################### */

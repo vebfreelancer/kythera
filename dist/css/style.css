@@ -3541,7 +3541,7 @@ input[name=conditions]:checked + .post-entry__label svg {
   right: 15px;
 }
 
-.preview-box__image img {
+.preview-box__file img {
   width: 350px;
   height: 300px;
   -o-object-fit: cover;
@@ -5540,7 +5540,7 @@ input[name=conditions]:checked + .post-entry__label svg {
     margin-right: 10px;
   }
 
-  .preview-box__image img {
+  .preview-box__file img {
     max-width: 350px;
     max-height: 300px;
     width: 100%;
