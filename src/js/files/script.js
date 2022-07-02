@@ -17,7 +17,7 @@ new HystModal({
 });
 
 // Initialization OverlayScrollbars
-const EntryTextArea = document.getElementById("caption");
+const EntryTextArea = document.querySelector("textarea[name=textarea]");
 let ScrollBarTextarea;
 
 if (EntryTextArea) {
@@ -225,8 +225,6 @@ ItemCurrentPage();
 
 const FormNewEntry = document.getElementById('upload-new-entry-form');
 const DragAndDrop = document.querySelectorAll('.drag-drop');
-const imageFileTypes = document.getElementById('image-file-input').accept.split(', ');
-const mediaFileTypes = document.getElementById('media-file-input').accept.split(', ');
 
 const ImageFiles = [];
 const MediaFiles = [];
@@ -242,12 +240,13 @@ function validFileType(file, fileTypes) {
 }
 
 const li = `<li class="list-files__item"> 
-                <span class="list-files__marker">1</span>
-                <svg data-name="Group 143" xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="27.942" height="24" viewBox="0 0 27.942 24">
-                    <path data-name="Path 129" d="M1538.087,1471.851H1526.05a1.766,1.766,0,0,1-1.934-1.939q0-10.046,0-20.092a1.773,1.773,0,0,1,1.966-1.969h24.042a1.766,1.766,0,0,1,1.934,1.939q0,10.062,0,20.123a1.768,1.768,0,0,1-1.935,1.938Zm-11.975-5c.145-.172.237-.28.327-.389q3.7-4.473,7.4-8.946a1.407,1.407,0,0,1,2.376-.077c1.118,1.2,2.226,2.42,3.355,3.614a1.022,1.022,0,0,0,1.573.079c.372-.3.731-.617,1.1-.925a1.075,1.075,0,0,1,1.751.115q2.937,3.172,5.876,6.342c.046.049.1.093.192.182v-.271q-.007-7.905-.015-15.81c0-.625-.31-.919-.954-.919h-22.012c-.666,0-.969.305-.969.973q0,7.826,0,15.653Z" transform="translate(-1524.116 -1447.851)"/>
-                    <path data-name="Path 130" d="M1817.607,1514.881a2.994,2.994,0,1,1-2.989-3A3,3,0,0,1,1817.607,1514.881Z" transform="translate(-1793.657 -1507.876)"/>
-                </svg>
-                <span class="list-files__file-name">select your photo (jpg, png, tiff)</span>
+                <div class="list-files__wrap">
+                    <div class="list-files__picture">
+                        <span class="list-files__marker">1</span>
+                        <img src="img/icons/file-icon.svg" alt="picture">
+                    </div>
+                    <span class="list-files__file-name">select your photo (jpg, png, tiff)</span>
+                </div>
                 <div class="list-files__buttons">
                     <button type="button" class="list-files__view">View</button>
                     <button type="button" class="list-files__delete">Delete</button>
@@ -256,7 +255,7 @@ const li = `<li class="list-files__item">
                     <div class="preview-box__wrap">
                         <div class="preview-box__window">
                             <div class="preview-box__close">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                     <g data-name="Group 229" transform="translate(-866.101 -18.101)">
                                         <rect data-name="Rectangle 91" width="29.092" height="4.849" transform="translate(869.529 18.101) rotate(45)"/>
                                         <rect data-name="Rectangle 92" width="29.092" height="4.849" transform="translate(866.101 38.672) rotate(-45)"/>
@@ -270,8 +269,9 @@ const li = `<li class="list-files__item">
             </li>`;
 
 function handleFiles(files, ThisBlock) {
-    const input = ThisBlock.querySelector('.drop-files-input');
     const ListFiles = ThisBlock.querySelector('.list-files');
+    const input = ThisBlock.querySelector('.drop-files-input');
+    const FileTypes = input.accept.split(', ');
 
     if (ListFiles.children.length > 0) {
         ListFiles.querySelectorAll('li').forEach(el => el.remove());
@@ -280,7 +280,7 @@ function handleFiles(files, ThisBlock) {
     if (ThisBlock.dataset.files === 'image') {
 
         for (let i = 0; i < files.length; i++) {
-            const valid = validFileType(files[i], imageFileTypes);
+            const valid = validFileType(files[i], FileTypes);
             const unique = !ImageFiles.find(item => item.name === files[i].name);
 
             if (valid && ImageFiles.length < 3 && unique) {
@@ -297,7 +297,7 @@ function handleFiles(files, ThisBlock) {
         const maxsize = Number(input.dataset.sizeMb);
 
         for (let i = 0; i < files.length; i++) {
-            const valid = validFileType(files[i], mediaFileTypes);
+            const valid = validFileType(files[i], FileTypes);
             const unique = !MediaFiles.find(item => item.name === files[i].name);
             const size = Number((files[i].size / (1024*1024)).toFixed(2));
 
@@ -345,24 +345,47 @@ function handleFiles(files, ThisBlock) {
 
     if (ThisBlock.dataset.files === 'media') {
 
-        for (let i = 0; i < MediaFiles.length; i++){
+        for (let i = 0; i < MediaFiles.length; i++) {
             let file = MediaFiles[i];
-            let video = document.createElement("video");
-            video.file = file;
 
-            outFiles[i].append(video);
+            let reader = new FileReader();
+            DT.items.add(file);
+
+            if (file.type.slice(0,5) === 'video') {
+                let video = document.createElement("video");
+                video.setAttribute('controls', '');
+                video.setAttribute('muted', '');
+                video.file = file;
+                outFiles[i].append(video);
+                outFiles[i].classList.add('video-file');
+
+                reader.onload = (function(aVideo) {
+                    return function(e) {
+                        aVideo.src = e.target.result;
+                    };
+                })(video);
+            }
+
+            if (file.type.slice(0,5) === 'audio') {
+                let audio = document.createElement("audio");
+                audio.setAttribute('controls', '');
+                audio.file = file;
+                outFiles[i].append(audio);
+                outFiles[i].classList.add('audio-file');
+
+                reader.onload = (function(aVideo) {
+                    return function(e) {
+                        aVideo.src = e.target.result;
+                    };
+                })(audio);
+            }
+
+            reader.readAsDataURL(file);
+
             markers[i].textContent = i + 1;
             filename[i].textContent = file.name;
 
-            let reader = new FileReader();
-            reader.onload = (function(aVideo) {
-                return function(e) {
-                    aVideo.src = e.target.result;
-                };
-            })(video);
-
-            reader.readAsDataURL(file);
-            DT.items.add(file);
+            
         }
 
         files = DT.files;
@@ -378,6 +401,25 @@ function ViewDeleteFile(ThisBlock) {
     items.forEach(el => {
         el.addEventListener('click', function(event) {
             const target = event.target;
+            const preview = this.querySelector('.preview-box');
+            const video = this.querySelector('.preview-box__file video');
+            const audio = this.querySelector('.preview-box__file audio');
+
+            if (target.closest('.list-files__view')){
+                preview.classList.add('active');
+            }
+
+            if (target.closest('.preview-box__close')){
+                preview.classList.remove('active');
+
+                if (audio) {
+                    audio.pause();
+                }
+
+                if (video) {
+                    video.pause();
+                }
+            }
 
             if (target.closest('.list-files__delete')){
                 const FileName = this.querySelector('.list-files__file-name').textContent;
@@ -396,7 +438,7 @@ function ViewDeleteFile(ThisBlock) {
             }
         });
     });
-};
+}
 
 function dragenter(event) {
     event.stopPropagation();

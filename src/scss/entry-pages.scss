@@ -168,26 +168,36 @@
     }
     &__field {
         background-color: #f5ead9;
-        width: 100%;
-        height: 165px;
-        padding: 15px;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 1.5;
-        letter-spacing: 0.8px;
-        color: $color-two;
-        resize: none;
-        outline: none;
-        &::placeholder {
+        padding: 15px 0px;
+        .os-host-textarea {
+            height: 165px;
+            padding: 0 15px;
+            @media (max-width: $mobile) {
+                height: 200px;
+            }
+        }
+        textarea {
+            
+            padding-right: 15px;
             font-size: 16px;
             font-weight: 500;
             line-height: 1.5;
             letter-spacing: 0.8px;
             color: $color-two;
+            resize: none;
+            outline: none;
+            &::placeholder {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1.5;
+                letter-spacing: 0.8px;
+                color: $color-two;
+            }
+            &:focus {
+                color: $color-two;
+            }
         }
-        &:focus {
-            color: $color-two;
-        }
+        
     }
     &__footer {
         button {
@@ -378,19 +388,22 @@ input[name="conditions"]:checked +
 .drag-drop {
     &__field {
         background-color: #f5ead9;
-        min-height: 150px;
+        min-height: 160px;
         padding: 15px;
         margin-bottom: 15px;
         @media (max-width: $mobile) {
-            min-height: 160px;
+            min-height: 130px;
         }
     }
     &__box {
         border: 2px dashed $color-two;
         display: block;
-        min-height: 120px;
+        min-height: 130px;
         padding: 10px;
         cursor: pointer;
+        @media (max-width: $mobile) {
+            min-height: 100px;
+        }
     }
     &__placeholder {
         font-size: 16px;
@@ -398,6 +411,9 @@ input[name="conditions"]:checked +
         line-height: 1.2;
         letter-spacing: 0.8px;
         color: $color-two;
+        @media (max-width: $mobileSmall) {
+            font-size: 15px;
+        }
     }
     &__downloaded {
     }
@@ -419,10 +435,31 @@ input[name="conditions"]:checked +
             align-items: center;
             justify-content: space-between;
         }
+        @media (max-width: 660px) {
+            padding-left: 70px;
+        }
         @media (max-width: $mobileSmall) {
             font-size: 16px;
             font-weight: 500;
             letter-spacing: 0.8px;
+            padding-left: 60px;
+        }
+    }
+    &__wrap {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        @media (min-width: 661px) {
+            flex: 0 1 560px;
+        }
+    }
+    &__picture {
+        display: flex;
+        align-items: center;
+        @media (max-width: 660px) {
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     }
     &__marker {
@@ -432,10 +469,12 @@ input[name="conditions"]:checked +
         }
     }
     &__file-name {
-        margin-left: 10px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+        @media (min-width: 661px) {
+            margin-left: 10px;
+        }
         &.invalid {
             color: red;
         }
@@ -443,13 +482,11 @@ input[name="conditions"]:checked +
     &__buttons {
         display: flex;
         align-items: center;
-        margin-left: auto;
+        @media (min-width: 661px) {
+            margin-left: 10px;
+        }
         @media (max-width: 660px) {
             margin-top: 5px;
-            padding-left: 65px;
-        }
-        @media (max-width: $mobile) {
-            padding-left: 58px;
         }
         button {
             color: $accent-color;
@@ -492,35 +529,61 @@ input[name="conditions"]:checked +
     &__window {
         box-shadow: 0px 0px 20px 5px rgba(96 83 83 / 70%);
         background-color: $accent-color;
-        padding: 50px 25px 25px 25px;
+        max-width: 700px;
+        width: 100%;
         position: relative;
+        @media (min-width: $mobileSmall) {
+            padding: 50px 25px 25px 25px;
+        }
     }
     &__close {
         width: 24px;
         height: 24px;
-        margin: 0 0 15px auto;
         color: $mainColor;
         cursor: pointer;
         transition: color .3s linear;
         position: absolute;
         top: 15px;
         right: 15px;
+        z-index: 20;
         @media (min-width: $tablet) {
             &:hover {
                 color: $color-two;
             }
         }
+        @media (max-width: $mobileSmall) {
+            background-color: $accent-color;
+            border-radius: 100%;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+            @media (max-width: $mobileSmall) {
+                width: 15px;
+                height: 15px;
+            }
+        }
     }
     &__file {
-        img {
-            width: 350px;
-            height: 300px;
+        audio {
+            display: block;
+            width: 100%;
+        }
+        img,
+        video {
+            aspect-ratio: 16 / 9;
             object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        &.audio-file {
             @media (max-width: $mobileSmall) {
-                max-width: 350px;
-                max-height: 300px;
-                width: 100%;
-                height: 100%;
+                padding: 40px 15px 15px 15px;
             }
         }
     }
@@ -571,7 +634,7 @@ input[name="conditions"]:checked +
         .os-host-textarea {
             height: 250px;
             padding: 0 15px;
-            @media (max-width: $mobileSmall) {
+            @media (max-width: $mobile) {
                 height: 200px;
             }
         }

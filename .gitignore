@@ -1,5 +1,6 @@
 src/fonts
 src/img
+src/favicon
 version.json
 config/
 node_modules/
