@@ -270,6 +270,7 @@ const li = `<li class="list-files__item">
 
 function handleFiles(files, ThisBlock) {
     const ListFiles = ThisBlock.querySelector('.list-files');
+    const ResetButton = document.querySelector('.form-buttons__reset');
     const input = ThisBlock.querySelector('.drop-files-input');
     const FileTypes = input.accept.split(', ');
 
@@ -384,8 +385,6 @@ function handleFiles(files, ThisBlock) {
 
             markers[i].textContent = i + 1;
             filename[i].textContent = file.name;
-
-            
         }
 
         files = DT.files;
@@ -393,6 +392,12 @@ function handleFiles(files, ThisBlock) {
     }
 
     ViewDeleteFile(ThisBlock);
+
+    ResetButton.addEventListener('click', () => {
+        if (input.value !== '') {
+            document.querySelectorAll('.list-files__item').forEach(el => el.remove());
+        }
+    });
 }
 
 function ViewDeleteFile(ThisBlock) {
