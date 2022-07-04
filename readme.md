@@ -1,14 +1,20 @@
 # Kythera family website
 [vebfreelancer.github.io/kythera](https://vebfreelancer.github.io/kythera/dist/index.html)
 ```
-Australian Kiters Association website to find and host family ties.
-The task was performed under a fixed price agreement, eleven web pages were developed.  
-Menu authorizations, personal accounts, and pages for creating new posts on the site  
-through a personal office. Layouts of pages for development were presented in Adobe XD,  
-design work was not completed, adaptive page layouts were shown only partially, adaptive  
-and some points I developed independently in consultation with the client in the process  
-of creating web pages. In the end, the results of the page are completed in full, taking  
-into account all the details.
+Australian Kythera Association website for finding and posting your family connections.
+The assignment was completed under a fixed-price agreement, eleven web pages were
+developed.
+
+Layouts of pages for development were presented in Adobe XD, design work was not fully 
+completed, unfinished responsive page layouts, hover effects not shown cursor, and others. 
+All points are unfinished at the design stage and adaptive has been refined in agreement 
+with the client in creating web pages. The final result of the page is completed in full with all 
+details taken into account.
+
+An interesting task was the development of a drag-and-drop interface on the new post page.
+Several menus are implemented in the project - user authorization, aside, mobile menu, and
+search menu on mobile devices. Personal account and pages for creating new posts on the 
+website through a personal account.
 ```
 ### Pages
 1. [Home](https://vebfreelancer.github.io/kythera/dist/)
@@ -25,14 +31,16 @@ into account all the details.
 ### Implemented functionality:
 - Modal window[^1]
 - Slider[^2]
+- Drag-and-drop
 - Responsive adaptive
 - Cross - browser
 - Semantics
 - Custom textarea scrollbar[^3]
 - Site menu
+  - Aside
   - LOGIN
   - Accordion
-  - Drop-down 
+  - Drop-down
   - Mobile devices
     - Burger menu
     - Search
@@ -40,11 +48,14 @@ into account all the details.
 - Gulp
 - SCSS
 - JavaScript
+- ES6 modules
 - HTML5
 - CSS3
 - GRID
 - FlexBox
 - BEM
+- GIT
+- NPM
 ### Tests:
 - HTML validity - the result of the test for all pages of the site there are no errors according to the service Markup Validation Service W3C, validator checks the [markup validity](https://validator.w3.org/#validate_by_uri).
 - CSS validity - no errors according to Markup Validation Service W3C, [css - validator](https://jigsaw.w3.org/css-validator/).
