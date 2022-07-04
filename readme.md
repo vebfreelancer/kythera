@@ -8,8 +8,8 @@ developed.
 Layouts of pages for development were presented in Adobe XD, design work was not fully 
 completed, unfinished responsive page layouts, hover effects not shown cursor, and others. 
 All points are unfinished at the design stage and adaptive has been refined in agreement 
-with the client in creating web pages. The final result of the page is completed in full with all 
-details taken into account.
+with the client in creating web pages. The final result of the page is completed in full  
+with all details taken into account.
 
 An interesting task was the development of a drag-and-drop interface on the new post page.
 Several menus are implemented in the project - user authorization, aside, mobile menu, and
