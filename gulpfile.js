@@ -31,6 +31,7 @@ const path = {
 		css: `${projectName}/css/`,
 		images: `${projectName}/img/`,
 		fonts: `${projectName}/fonts/`,
+		favicon: `${projectName}/favicon/`,
 	},
 	src: {
 		html: [`${srcFolder}/**/*.html`, `!${srcFolder}/_*.html`],
@@ -39,6 +40,7 @@ const path = {
 		images: [`${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`, "!**/favicon.*"],
 		svg: [`${srcFolder}/img/**/*.svg`, "!**/favicon.*"],
 		fonts: `${srcFolder}/fonts/*.ttf`,
+		favicon: `${srcFolder}/favicon/**`,
 	},
 	clean: `./${projectName}/`
 };
@@ -257,9 +259,14 @@ function htmlNoWebpBuild() {
 		.pipe(dest(path.build.html));
 }
 
+function favicon() {
+	return src(path.src.favicon)
+	.pipe(gulp.dest(path.build.favicon));
+}
+
 let fontsBuild = gulp.series(fontsConverter, fontStyle);
 let dev = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild));
-let build = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesBuild), webpackBuild, cssBuild, htmlBuild);
+let build = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesBuild), webpackBuild, cssBuild, htmlBuild, favicon);
 let devbuild = gulp.series(clean, gulp.parallel(addGitIgnore, fontsBuild, imagesNoWebpBuild), webpackBuild, cssNoWebpBuild, htmlNoWebpBuild);
 
 gulp.task('fonts', fontsBuild);

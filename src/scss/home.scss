@@ -97,6 +97,7 @@
                 width: 100%;
             }
             @media (max-width: $mobileSmall) {
+                justify-content: normal;
                 padding-left: 25px;
             }
         }
